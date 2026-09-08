@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="650" viewBox="0 0 1160 650">
+<style>text{font-family:Inter,Arial,sans-serif;fill:#111827}.title{font-size:26px;font-weight:700}.subtitle{font-size:15px;fill:#6B7280}.panel{font-size:16px;font-weight:700}.axis{font-size:12px;fill:#6B7280}.value{font-size:13px;fill:#374151;font-weight:700}.seg{font-size:14px;font-weight:700}.note{font-size:13px;fill:#6B7280}</style>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="76" y="48" class="title">Main Period Segment Opportunity</text>
+<text x="76" y="76" class="subtitle">NAU is the largest segment, while EAU/RAU show higher buyer conversion efficiency.</text>
+<text x="76" y="111" class="panel">WAU Share</text>
+<text x="76" y="158" class="seg">NAU</text>
+<rect x="134" y="135" width="260" height="30" fill="#EEF2F7" rx="4"/>
+<rect x="134" y="135" width="235.2" height="30" fill="#2F80ED" rx="4"/>
+<text x="377.2" y="156" class="value">90.4%</text>
+<text x="134" y="187" class="axis">95,490 users</text>
+<text x="76" y="276" class="seg">EAU</text>
+<rect x="134" y="253" width="260" height="30" fill="#EEF2F7" rx="4"/>
+<rect x="134" y="253" width="14.7" height="30" fill="#27AE60" rx="4"/>
+<text x="156.7" y="274" class="value">5.7%</text>
+<text x="134" y="305" class="axis">5,985 users</text>
+<text x="76" y="394" class="seg">RAU</text>
+<rect x="134" y="371" width="260" height="30" fill="#EEF2F7" rx="4"/>
+<rect x="134" y="371" width="10.1" height="30" fill="#F2994A" rx="4"/>
+<text x="152.1" y="392" class="value">3.9%</text>
+<text x="134" y="423" class="axis">4,104 users</text>
+<text x="436" y="111" class="panel">Buyer CVR</text>
+<text x="436" y="158" class="seg">NAU</text>
+<rect x="494" y="135" width="260" height="30" fill="#EEF2F7" rx="4"/>
+<rect x="494" y="135" width="42.4" height="30" fill="#2F80ED" rx="4"/>
+<text x="544.4" y="156" class="value">1.6%</text>
+<text x="494" y="187" class="axis">1,559 buyers</text>
+<text x="436" y="276" class="seg">EAU</text>
+<rect x="494" y="253" width="260" height="30" fill="#EEF2F7" rx="4"/>
+<rect x="494" y="253" width="190.3" height="30" fill="#27AE60" rx="4"/>
+<text x="692.3" y="274" class="value">7.3%</text>
+<text x="494" y="305" class="axis">438 buyers</text>
+<text x="436" y="394" class="seg">RAU</text>
+<rect x="494" y="371" width="260" height="30" fill="#EEF2F7" rx="4"/>
+<rect x="494" y="371" width="210.3" height="30" fill="#F2994A" rx="4"/>
+<text x="712.3" y="392" class="value">8.1%</text>
+<text x="494" y="423" class="axis">332 buyers</text>
+<text x="796" y="111" class="panel">Revenue Share</text>
+<text x="796" y="158" class="seg">NAU</text>
+<rect x="854" y="135" width="260" height="30" fill="#EEF2F7" rx="4"/>
+<rect x="854" y="135" width="223.3" height="30" fill="#2F80ED" rx="4"/>
+<text x="1085.3" y="156" class="value">60.1%</text>
+<text x="854" y="187" class="axis">$119.0k</text>
+<text x="796" y="276" class="seg">EAU</text>
+<rect x="854" y="253" width="260" height="30" fill="#EEF2F7" rx="4"/>
+<rect x="854" y="253" width="89.5" height="30" fill="#27AE60" rx="4"/>
+<text x="951.5" y="274" class="value">24.1%</text>
+<text x="854" y="305" class="axis">$47.7k</text>
+<text x="796" y="394" class="seg">RAU</text>
+<rect x="854" y="371" width="260" height="30" fill="#EEF2F7" rx="4"/>
+<rect x="854" y="371" width="58.6" height="30" fill="#F2994A" rx="4"/>
+<text x="920.6" y="392" class="value">15.8%</text>
+<text x="854" y="423" class="axis">$31.2k</text>
+<text x="76" y="590" class="note">Interpretation: NAU has the biggest reachable population but lower buyer CVR, making it the first segment to inspect for conversion improvement.</text>
+</svg>

@@ -1,0 +1,5 @@
+scenario,base_purchase_sessions,expected_purchase_sessions,incremental_purchase_sessions,expected_revenue_increment,nau_current_step_rate_pct,eau_reference_step_rate_pct
+View Item Reach to EAU level,714,1016.8,302.8,23105.56,21.3,30.3
+View to Cart to EAU level,714,788.7,74.7,5702.55,25.8,28.4
+Cart to Checkout to EAU level,714,866.0,152.0,11597.47,32.4,39.3
+Checkout to Purchase to EAU level,714,1170.3,456.3,34820.68,42.1,69.0

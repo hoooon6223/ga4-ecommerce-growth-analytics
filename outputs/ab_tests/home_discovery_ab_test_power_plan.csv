@@ -1,0 +1,2 @@
+primary_metric,baseline_rate,mde_abs,alpha,power,test,required_n_per_variant,expected_eligible_sessions_per_week,expected_sessions_per_variant_per_week,estimated_min_weeks,simulated_n_per_variant,simulated_duration_weeks
+home_to_item_list_rate,0.3603563284529975,0.035,0.05,0.8,one-sided two-proportion z-test,2372,11730.75,5865.375,0.4044072203397055,24000,4.0918099865737485

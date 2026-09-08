@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="430" viewBox="0 0 1120 430">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="38" font-family="Arial" font-size="22" font-weight="700" fill="#222">Main-period First-session Sequential Funnel by Segment</text>
+<text x="40" y="62" font-family="Arial" font-size="12" fill="#666">Baseline funnel includes all segment first sessions.</text>
+<text x="38" y="83" font-family="Arial" font-size="13" font-weight="700" fill="#333">View Item Reach</text>
+<line x1="38" y1="330" x2="218" y2="330" stroke="#ccc"/>
+<rect x="53" y="231" width="36" height="99" fill="#2f6f73" rx="2"/>
+<text x="71" y="224" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">21.3%</text>
+<text x="71" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 71 350)">NAU</text>
+<rect x="108" y="189" width="36" height="141" fill="#d88c2d" rx="2"/>
+<text x="126" y="182" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">30.3%</text>
+<text x="126" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 126 350)">EAU</text>
+<rect x="163" y="140" width="36" height="190" fill="#5a5f73" rx="2"/>
+<text x="181" y="133" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">40.7%</text>
+<text x="181" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 181 350)">RAU</text>
+<text x="252" y="83" font-family="Arial" font-size="13" font-weight="700" fill="#333">View to Cart</text>
+<line x1="252" y1="330" x2="432" y2="330" stroke="#ccc"/>
+<rect x="267" y="181" width="36" height="149" fill="#2f6f73" rx="2"/>
+<text x="285" y="174" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">25.8%</text>
+<text x="285" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 285 350)">NAU</text>
+<rect x="322" y="165" width="36" height="165" fill="#d88c2d" rx="2"/>
+<text x="340" y="158" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">28.4%</text>
+<text x="340" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 340 350)">EAU</text>
+<rect x="377" y="140" width="36" height="190" fill="#5a5f73" rx="2"/>
+<text x="395" y="133" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">32.7%</text>
+<text x="395" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 395 350)">RAU</text>
+<text x="466" y="83" font-family="Arial" font-size="13" font-weight="700" fill="#333">Cart to Checkout</text>
+<line x1="466" y1="330" x2="646" y2="330" stroke="#ccc"/>
+<rect x="481" y="184" width="36" height="146" fill="#2f6f73" rx="2"/>
+<text x="499" y="177" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">32.4%</text>
+<text x="499" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 499 350)">NAU</text>
+<rect x="536" y="152" width="36" height="178" fill="#d88c2d" rx="2"/>
+<text x="554" y="145" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">39.3%</text>
+<text x="554" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 554 350)">EAU</text>
+<rect x="591" y="140" width="36" height="190" fill="#5a5f73" rx="2"/>
+<text x="609" y="133" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">41.9%</text>
+<text x="609" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 609 350)">RAU</text>
+<text x="680" y="83" font-family="Arial" font-size="13" font-weight="700" fill="#333">Checkout to Purchase</text>
+<line x1="680" y1="330" x2="860" y2="330" stroke="#ccc"/>
+<rect x="695" y="215" width="36" height="115" fill="#2f6f73" rx="2"/>
+<text x="713" y="208" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">42.1%</text>
+<text x="713" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 713 350)">NAU</text>
+<rect x="750" y="140" width="36" height="190" fill="#d88c2d" rx="2"/>
+<text x="768" y="133" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">69.0%</text>
+<text x="768" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 768 350)">EAU</text>
+<rect x="805" y="143" width="36" height="187" fill="#5a5f73" rx="2"/>
+<text x="823" y="136" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">68.1%</text>
+<text x="823" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 823 350)">RAU</text>
+<text x="894" y="83" font-family="Arial" font-size="13" font-weight="700" fill="#333">Funnel Completion</text>
+<line x1="894" y1="330" x2="1074" y2="330" stroke="#ccc"/>
+<rect x="909" y="293" width="36" height="37" fill="#2f6f73" rx="2"/>
+<text x="927" y="286" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">0.8%</text>
+<text x="927" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 927 350)">NAU</text>
+<rect x="964" y="213" width="36" height="117" fill="#d88c2d" rx="2"/>
+<text x="982" y="206" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">2.3%</text>
+<text x="982" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 982 350)">EAU</text>
+<rect x="1019" y="140" width="36" height="190" fill="#5a5f73" rx="2"/>
+<text x="1037" y="133" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">3.8%</text>
+<text x="1037" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#555" transform="rotate(35 1037 350)">RAU</text>
+</svg>

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}.small{font-size:12px}.axis{stroke:#d9dee7;stroke-width:1}.grid{stroke:#e9edf3;stroke-width:1}.title{font-size:22px;font-weight:700}.subtitle{font-size:13px;fill:#666}.label{font-size:13px;font-weight:700}</style>
+<text x="80" y="38" class="title">GA4 Merchandise Store: Weekly NAU / EAU / RAU Cohort</text>
+<text x="80" y="60" class="subtitle">Stacked weekly active users and buyer CVR by observed active user segment. First week is marked as warm-up.</text>
+<rect x="80" y="72" width="14" height="14" fill="#4C78A8" rx="2"/>
+<text x="100" y="84" class="small">NAU</text>
+<rect x="155" y="72" width="14" height="14" fill="#72B7B2" rx="2"/>
+<text x="175" y="84" class="small">EAU</text>
+<rect x="230" y="72" width="14" height="14" fill="#F58518" rx="2"/>
+<text x="250" y="84" class="small">RAU</text>
+<line x1="305" y1="79" x2="333" y2="79" stroke="#333" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="341" y="84" class="small">Total Buyer CVR</text>
+<text x="80" y="73" class="label">Weekly Active Users by Segment</text>
+<text x="80" y="509" class="label">Weekly Buyer CVR by Segment</text>
+<rect x="72" y="85" width="57.2" height="360" fill="#999" opacity="0.10"/>
+<text x="84" y="107" class="small" fill="#666">Warm-up</text>
+<line x1="80" y1="445.0" x2="1150" y2="445.0" class="grid"/>
+<text x="68" y="449.0" class="small" text-anchor="end">0</text>
+<line x1="80" y1="355.0" x2="1150" y2="355.0" class="grid"/>
+<text x="68" y="359.0" class="small" text-anchor="end">8,819</text>
+<line x1="80" y1="265.0" x2="1150" y2="265.0" class="grid"/>
+<text x="68" y="269.0" class="small" text-anchor="end">17,639</text>
+<line x1="80" y1="175.0" x2="1150" y2="175.0" class="grid"/>
+<text x="68" y="179.0" class="small" text-anchor="end">26,458</text>
+<line x1="80" y1="85.0" x2="1150" y2="85.0" class="grid"/>
+<text x="68" y="89.0" class="small" text-anchor="end">35,278</text>
+<line x1="80" y1="445" x2="1150" y2="445" class="axis"/>
+<polygon points="80.0,420.9 162.3,247.3 244.6,279.4 326.9,259.6 409.2,240.2 491.5,220.1 573.8,153.7 656.2,191.5 738.5,267.1 820.8,275.4 903.1,211.2 985.4,226.3 1067.7,233.8 1150.0,246.6 1150.0,445.0 1067.7,445.0 985.4,445.0 903.1,445.0 820.8,445.0 738.5,445.0 656.2,445.0 573.8,445.0 491.5,445.0 409.2,445.0 326.9,445.0 244.6,445.0 162.3,445.0 80.0,445.0" fill="#4C78A8" opacity="0.88"/>
+<polygon points="80.0,420.9 162.3,244.7 244.6,266.4 326.9,245.6 409.2,226.2 491.5,205.5 573.8,136.1 656.2,176.7 738.5,256.6 820.8,268.5 903.1,204.9 985.4,215.7 1067.7,222.4 1150.0,234.4 1150.0,246.6 1067.7,233.8 985.4,226.3 903.1,211.2 820.8,275.4 738.5,267.1 656.2,191.5 573.8,153.7 491.5,220.1 409.2,240.2 326.9,259.6 244.6,279.4 162.3,247.3 80.0,420.9" fill="#72B7B2" opacity="0.88"/>
+<polygon points="80.0,420.9 162.3,244.7 244.6,266.1 326.9,241.2 409.2,219.2 491.5,194.6 573.8,123.6 656.2,165.2 738.5,249.7 820.8,261.8 903.1,192.8 985.4,206.5 1067.7,213.9 1150.0,224.7 1150.0,234.4 1067.7,222.4 985.4,215.7 903.1,204.9 820.8,268.5 738.5,256.6 656.2,176.7 573.8,136.1 491.5,205.5 409.2,226.2 326.9,245.6 244.6,266.4 162.3,244.7 80.0,420.9" fill="#F58518" opacity="0.88"/>
+<line x1="80" y1="695.0" x2="1150" y2="695.0" class="grid"/>
+<text x="68" y="699.0" class="small" text-anchor="end">0.0%</text>
+<line x1="80" y1="652.5" x2="1150" y2="652.5" class="grid"/>
+<text x="68" y="656.5" class="small" text-anchor="end">3.0%</text>
+<line x1="80" y1="610.0" x2="1150" y2="610.0" class="grid"/>
+<text x="68" y="614.0" class="small" text-anchor="end">6.0%</text>
+<line x1="80" y1="567.5" x2="1150" y2="567.5" class="grid"/>
+<text x="68" y="571.5" class="small" text-anchor="end">9.0%</text>
+<line x1="80" y1="525.0" x2="1150" y2="525.0" class="grid"/>
+<text x="68" y="529.0" class="small" text-anchor="end">12.0%</text>
+<line x1="80" y1="695" x2="1150" y2="695" class="axis"/>
+<polyline points="80.0,687.2 162.3,678.0 244.6,671.5 326.9,675.1 409.2,670.3 491.5,668.8 573.8,672.1 656.2,675.8 738.5,685.0 820.8,689.1 903.1,688.6 985.4,686.1 1067.7,676.6 1150.0,683.3" fill="none" stroke="#4C78A8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="80.0" cy="687.2" r="3.8" fill="#4C78A8"/>
+<circle cx="162.3" cy="678.0" r="3.8" fill="#4C78A8"/>
+<circle cx="244.6" cy="671.5" r="3.8" fill="#4C78A8"/>
+<circle cx="326.9" cy="675.1" r="3.8" fill="#4C78A8"/>
+<circle cx="409.2" cy="670.3" r="3.8" fill="#4C78A8"/>
+<circle cx="491.5" cy="668.8" r="3.8" fill="#4C78A8"/>
+<circle cx="573.8" cy="672.1" r="3.8" fill="#4C78A8"/>
+<circle cx="656.2" cy="675.8" r="3.8" fill="#4C78A8"/>
+<circle cx="738.5" cy="685.0" r="3.8" fill="#4C78A8"/>
+<circle cx="820.8" cy="689.1" r="3.8" fill="#4C78A8"/>
+<circle cx="903.1" cy="688.6" r="3.8" fill="#4C78A8"/>
+<circle cx="985.4" cy="686.1" r="3.8" fill="#4C78A8"/>
+<circle cx="1067.7" cy="676.6" r="3.8" fill="#4C78A8"/>
+<circle cx="1150.0" cy="683.3" r="3.8" fill="#4C78A8"/>
+<polyline points="162.3,639.3 244.6,633.5 326.9,611.3 409.2,609.3 491.5,614.1 573.8,570.4 656.2,577.7 738.5,619.6 820.8,626.1 903.1,640.3 985.4,636.6 1067.7,638.2 1150.0,589.7" fill="none" stroke="#72B7B2" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="162.3" cy="639.3" r="3.8" fill="#72B7B2"/>
+<circle cx="244.6" cy="633.5" r="3.8" fill="#72B7B2"/>
+<circle cx="326.9" cy="611.3" r="3.8" fill="#72B7B2"/>
+<circle cx="409.2" cy="609.3" r="3.8" fill="#72B7B2"/>
+<circle cx="491.5" cy="614.1" r="3.8" fill="#72B7B2"/>
+<circle cx="573.8" cy="570.4" r="3.8" fill="#72B7B2"/>
+<circle cx="656.2" cy="577.7" r="3.8" fill="#72B7B2"/>
+<circle cx="738.5" cy="619.6" r="3.8" fill="#72B7B2"/>
+<circle cx="820.8" cy="626.1" r="3.8" fill="#72B7B2"/>
+<circle cx="903.1" cy="640.3" r="3.8" fill="#72B7B2"/>
+<circle cx="985.4" cy="636.6" r="3.8" fill="#72B7B2"/>
+<circle cx="1067.7" cy="638.2" r="3.8" fill="#72B7B2"/>
+<circle cx="1150.0" cy="589.7" r="3.8" fill="#72B7B2"/>
+<polyline points="244.6,655.7 326.9,613.1 409.2,567.0 491.5,584.9 573.8,553.3 656.2,614.6 738.5,586.3 820.8,621.6 903.1,654.3 985.4,624.4 1067.7,606.4 1150.0,611.9" fill="none" stroke="#F58518" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="244.6" cy="655.7" r="3.8" fill="#F58518"/>
+<circle cx="326.9" cy="613.1" r="3.8" fill="#F58518"/>
+<circle cx="409.2" cy="567.0" r="3.8" fill="#F58518"/>
+<circle cx="491.5" cy="584.9" r="3.8" fill="#F58518"/>
+<circle cx="573.8" cy="553.3" r="3.8" fill="#F58518"/>
+<circle cx="656.2" cy="614.6" r="3.8" fill="#F58518"/>
+<circle cx="738.5" cy="586.3" r="3.8" fill="#F58518"/>
+<circle cx="820.8" cy="621.6" r="3.8" fill="#F58518"/>
+<circle cx="903.1" cy="654.3" r="3.8" fill="#F58518"/>
+<circle cx="985.4" cy="624.4" r="3.8" fill="#F58518"/>
+<circle cx="1067.7" cy="606.4" r="3.8" fill="#F58518"/>
+<circle cx="1150.0" cy="611.9" r="3.8" fill="#F58518"/>
+<polyline points="80.0,687.2 162.3,677.6 244.6,668.8 326.9,669.4 409.2,663.2 491.5,662.0 573.8,661.9 656.2,668.0 738.5,678.0 820.8,684.3 903.1,685.8 985.4,681.5 1067.7,672.1 1150.0,675.0" fill="none" stroke="#333333" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 4"/>
+<circle cx="80.0" cy="687.2" r="3.8" fill="#333333"/>
+<circle cx="162.3" cy="677.6" r="3.8" fill="#333333"/>
+<circle cx="244.6" cy="668.8" r="3.8" fill="#333333"/>
+<circle cx="326.9" cy="669.4" r="3.8" fill="#333333"/>
+<circle cx="409.2" cy="663.2" r="3.8" fill="#333333"/>
+<circle cx="491.5" cy="662.0" r="3.8" fill="#333333"/>
+<circle cx="573.8" cy="661.9" r="3.8" fill="#333333"/>
+<circle cx="656.2" cy="668.0" r="3.8" fill="#333333"/>
+<circle cx="738.5" cy="678.0" r="3.8" fill="#333333"/>
+<circle cx="820.8" cy="684.3" r="3.8" fill="#333333"/>
+<circle cx="903.1" cy="685.8" r="3.8" fill="#333333"/>
+<circle cx="985.4" cy="681.5" r="3.8" fill="#333333"/>
+<circle cx="1067.7" cy="672.1" r="3.8" fill="#333333"/>
+<circle cx="1150.0" cy="675.0" r="3.8" fill="#333333"/>
+<text x="80.0" y="723" class="small" text-anchor="end" transform="rotate(-35 80.0,723)">2020-10-26</text>
+<text x="244.6" y="723" class="small" text-anchor="end" transform="rotate(-35 244.6,723)">2020-11-09</text>
+<text x="409.2" y="723" class="small" text-anchor="end" transform="rotate(-35 409.2,723)">2020-11-23</text>
+<text x="573.8" y="723" class="small" text-anchor="end" transform="rotate(-35 573.8,723)">2020-12-07</text>
+<text x="738.5" y="723" class="small" text-anchor="end" transform="rotate(-35 738.5,723)">2020-12-21</text>
+<text x="903.1" y="723" class="small" text-anchor="end" transform="rotate(-35 903.1,723)">2021-01-04</text>
+<text x="1067.7" y="723" class="small" text-anchor="end" transform="rotate(-35 1067.7,723)">2021-01-18</text>
+<text x="1150.0" y="723" class="small" text-anchor="end" transform="rotate(-35 1150.0,723)">2021-01-25</text>
+<text x="25" y="265.0" class="small" text-anchor="middle" transform="rotate(-90 25,265.0)">Active users</text>
+<text x="25" y="610.0" class="small" text-anchor="middle" transform="rotate(-90 25,610.0)">Buyer CVR</text>
+<text x="80" y="736" class="subtitle">NAU = observed new active user, EAU = retained from previous week, RAU = returned after inactive previous week. anonymous_id is not a backend customer ID.</text>
+</svg>

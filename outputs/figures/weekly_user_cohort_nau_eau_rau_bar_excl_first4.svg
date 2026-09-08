@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}.small{font-size:12px}.tiny{font-size:11px}.axis{stroke:#d9dee7;stroke-width:1}.grid{stroke:#e9edf3;stroke-width:1}.title{font-size:22px;font-weight:700}.subtitle{font-size:13px;fill:#666}.label{font-size:13px;font-weight:700}</style>
+<text x="92" y="38" class="title">Weekly Active User Composition by Lifecycle Segment</text>
+<text x="92" y="64" class="subtitle">WAU is split into NAU, EAU, and RAU based on each user's previous visit history. First 4 observed weeks are excluded.</text>
+<rect x="92" y="92" width="14" height="14" fill="#4C78A8" rx="2"/>
+<text x="112" y="104" class="small">NAU</text>
+<rect x="176" y="92" width="14" height="14" fill="#72B7B2" rx="2"/>
+<text x="196" y="104" class="small">EAU</text>
+<rect x="260" y="92" width="14" height="14" fill="#F58518" rx="2"/>
+<text x="280" y="104" class="small">RAU</text>
+<line x1="344" y1="99" x2="374" y2="99" stroke="#333" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="384" y="104" class="small">Total Buyer CVR</text>
+<text x="92" y="119" class="label">WAU Composition by Segment</text>
+<text x="92" y="551" class="label">Weekly Buyer CVR by Segment</text>
+<line x1="92" y1="475.0" x2="1222" y2="475.0" class="grid"/>
+<text x="78" y="479.0" class="small" text-anchor="end">0</text>
+<line x1="92" y1="390.0" x2="1222" y2="390.0" class="grid"/>
+<text x="78" y="394.0" class="small" text-anchor="end">9,056</text>
+<line x1="92" y1="305.0" x2="1222" y2="305.0" class="grid"/>
+<text x="78" y="309.0" class="small" text-anchor="end">18,111</text>
+<line x1="92" y1="220.0" x2="1222" y2="220.0" class="grid"/>
+<text x="78" y="224.0" class="small" text-anchor="end">27,167</text>
+<line x1="92" y1="135.0" x2="1222" y2="135.0" class="grid"/>
+<text x="78" y="139.0" class="small" text-anchor="end">36,223</text>
+<line x1="92" y1="475" x2="1222" y2="475" class="axis"/>
+<rect x="119.5" y="286.6" width="58.0" height="188.4" fill="#4C78A8" opacity="0.92"/>
+<rect x="119.5" y="273.7" width="58.0" height="12.8" fill="#72B7B2" opacity="0.92"/>
+<rect x="119.5" y="267.3" width="58.0" height="6.4" fill="#F58518" opacity="0.92"/>
+<rect x="232.5" y="268.2" width="58.0" height="206.8" fill="#4C78A8" opacity="0.92"/>
+<rect x="232.5" y="254.7" width="58.0" height="13.5" fill="#72B7B2" opacity="0.92"/>
+<rect x="232.5" y="244.7" width="58.0" height="10.0" fill="#F58518" opacity="0.92"/>
+<rect x="345.5" y="207.1" width="58.0" height="267.9" fill="#4C78A8" opacity="0.92"/>
+<rect x="345.5" y="190.9" width="58.0" height="16.2" fill="#72B7B2" opacity="0.92"/>
+<rect x="345.5" y="179.3" width="58.0" height="11.5" fill="#F58518" opacity="0.92"/>
+<rect x="458.5" y="241.9" width="58.0" height="233.1" fill="#4C78A8" opacity="0.92"/>
+<rect x="458.5" y="228.2" width="58.0" height="13.7" fill="#72B7B2" opacity="0.92"/>
+<rect x="458.5" y="217.6" width="58.0" height="10.6" fill="#F58518" opacity="0.92"/>
+<rect x="571.5" y="311.4" width="58.0" height="163.6" fill="#4C78A8" opacity="0.92"/>
+<rect x="571.5" y="301.7" width="58.0" height="9.7" fill="#72B7B2" opacity="0.92"/>
+<rect x="571.5" y="295.4" width="58.0" height="6.3" fill="#F58518" opacity="0.92"/>
+<rect x="684.5" y="319.0" width="58.0" height="156.0" fill="#4C78A8" opacity="0.92"/>
+<rect x="684.5" y="312.7" width="58.0" height="6.4" fill="#72B7B2" opacity="0.92"/>
+<rect x="684.5" y="306.5" width="58.0" height="6.1" fill="#F58518" opacity="0.92"/>
+<rect x="797.5" y="260.0" width="58.0" height="215.0" fill="#4C78A8" opacity="0.92"/>
+<rect x="797.5" y="254.2" width="58.0" height="5.8" fill="#72B7B2" opacity="0.92"/>
+<rect x="797.5" y="243.1" width="58.0" height="11.1" fill="#F58518" opacity="0.92"/>
+<rect x="910.5" y="273.8" width="58.0" height="201.2" fill="#4C78A8" opacity="0.92"/>
+<rect x="910.5" y="264.1" width="58.0" height="9.8" fill="#72B7B2" opacity="0.92"/>
+<rect x="910.5" y="255.6" width="58.0" height="8.5" fill="#F58518" opacity="0.92"/>
+<rect x="1023.5" y="280.7" width="58.0" height="194.3" fill="#4C78A8" opacity="0.92"/>
+<rect x="1023.5" y="270.2" width="58.0" height="10.5" fill="#72B7B2" opacity="0.92"/>
+<rect x="1023.5" y="262.4" width="58.0" height="7.8" fill="#F58518" opacity="0.92"/>
+<rect x="1136.5" y="292.5" width="58.0" height="182.5" fill="#4C78A8" opacity="0.92"/>
+<rect x="1136.5" y="281.3" width="58.0" height="11.2" fill="#72B7B2" opacity="0.92"/>
+<rect x="1136.5" y="272.3" width="58.0" height="8.9" fill="#F58518" opacity="0.92"/>
+<line x1="92" y1="732.0" x2="1222" y2="732.0" class="grid"/>
+<text x="78" y="736.0" class="small" text-anchor="end">0.0%</text>
+<line x1="92" y1="690.8" x2="1222" y2="690.8" class="grid"/>
+<text x="78" y="694.8" class="small" text-anchor="end">3.0%</text>
+<line x1="92" y1="649.5" x2="1222" y2="649.5" class="grid"/>
+<text x="78" y="653.5" class="small" text-anchor="end">6.0%</text>
+<line x1="92" y1="608.2" x2="1222" y2="608.2" class="grid"/>
+<text x="78" y="612.2" class="small" text-anchor="end">9.0%</text>
+<line x1="92" y1="567.0" x2="1222" y2="567.0" class="grid"/>
+<text x="78" y="571.0" class="small" text-anchor="end">12.0%</text>
+<line x1="92" y1="732" x2="1222" y2="732" class="axis"/>
+<polyline points="148.5,708.0 261.5,706.6 374.5,709.8 487.5,713.3 600.5,722.3 713.5,726.2 826.5,725.8 939.5,723.4 1052.5,714.2 1165.5,720.6" fill="none" stroke="#4C78A8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="148.5" cy="708.0" r="3.6" fill="#4C78A8"/>
+<circle cx="261.5" cy="706.6" r="3.6" fill="#4C78A8"/>
+<circle cx="374.5" cy="709.8" r="3.6" fill="#4C78A8"/>
+<circle cx="487.5" cy="713.3" r="3.6" fill="#4C78A8"/>
+<circle cx="600.5" cy="722.3" r="3.6" fill="#4C78A8"/>
+<circle cx="713.5" cy="726.2" r="3.6" fill="#4C78A8"/>
+<circle cx="826.5" cy="725.8" r="3.6" fill="#4C78A8"/>
+<circle cx="939.5" cy="723.4" r="3.6" fill="#4C78A8"/>
+<circle cx="1052.5" cy="714.2" r="3.6" fill="#4C78A8"/>
+<circle cx="1165.5" cy="720.6" r="3.6" fill="#4C78A8"/>
+<polyline points="148.5,648.8 261.5,653.5 374.5,611.1 487.5,618.1 600.5,658.9 713.5,665.2 826.5,678.9 939.5,675.3 1052.5,676.8 1165.5,629.8" fill="none" stroke="#72B7B2" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="148.5" cy="648.8" r="3.6" fill="#72B7B2"/>
+<circle cx="261.5" cy="653.5" r="3.6" fill="#72B7B2"/>
+<circle cx="374.5" cy="611.1" r="3.6" fill="#72B7B2"/>
+<circle cx="487.5" cy="618.1" r="3.6" fill="#72B7B2"/>
+<circle cx="600.5" cy="658.9" r="3.6" fill="#72B7B2"/>
+<circle cx="713.5" cy="665.2" r="3.6" fill="#72B7B2"/>
+<circle cx="826.5" cy="678.9" r="3.6" fill="#72B7B2"/>
+<circle cx="939.5" cy="675.3" r="3.6" fill="#72B7B2"/>
+<circle cx="1052.5" cy="676.8" r="3.6" fill="#72B7B2"/>
+<circle cx="1165.5" cy="629.8" r="3.6" fill="#72B7B2"/>
+<polyline points="148.5,607.8 261.5,625.1 374.5,594.5 487.5,653.9 600.5,626.5 713.5,660.8 826.5,692.5 939.5,663.5 1052.5,646.0 1165.5,651.3" fill="none" stroke="#F58518" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="148.5" cy="607.8" r="3.6" fill="#F58518"/>
+<circle cx="261.5" cy="625.1" r="3.6" fill="#F58518"/>
+<circle cx="374.5" cy="594.5" r="3.6" fill="#F58518"/>
+<circle cx="487.5" cy="653.9" r="3.6" fill="#F58518"/>
+<circle cx="600.5" cy="626.5" r="3.6" fill="#F58518"/>
+<circle cx="713.5" cy="660.8" r="3.6" fill="#F58518"/>
+<circle cx="826.5" cy="692.5" r="3.6" fill="#F58518"/>
+<circle cx="939.5" cy="663.5" r="3.6" fill="#F58518"/>
+<circle cx="1052.5" cy="646.0" r="3.6" fill="#F58518"/>
+<circle cx="1165.5" cy="651.3" r="3.6" fill="#F58518"/>
+<polyline points="148.5,701.2 261.5,700.0 374.5,699.9 487.5,705.8 600.5,715.5 713.5,721.6 826.5,723.1 939.5,718.8 1052.5,709.8 1165.5,712.6" fill="none" stroke="#333333" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 4"/>
+<circle cx="148.5" cy="701.2" r="3.6" fill="#333333"/>
+<circle cx="261.5" cy="700.0" r="3.6" fill="#333333"/>
+<circle cx="374.5" cy="699.9" r="3.6" fill="#333333"/>
+<circle cx="487.5" cy="705.8" r="3.6" fill="#333333"/>
+<circle cx="600.5" cy="715.5" r="3.6" fill="#333333"/>
+<circle cx="713.5" cy="721.6" r="3.6" fill="#333333"/>
+<circle cx="826.5" cy="723.1" r="3.6" fill="#333333"/>
+<circle cx="939.5" cy="718.8" r="3.6" fill="#333333"/>
+<circle cx="1052.5" cy="709.8" r="3.6" fill="#333333"/>
+<circle cx="1165.5" cy="712.6" r="3.6" fill="#333333"/>
+<text x="148.5" y="762" class="tiny" text-anchor="middle">11-23</text>
+<text x="261.5" y="762" class="tiny" text-anchor="middle">11-30</text>
+<text x="374.5" y="762" class="tiny" text-anchor="middle">12-07</text>
+<text x="487.5" y="762" class="tiny" text-anchor="middle">12-14</text>
+<text x="600.5" y="762" class="tiny" text-anchor="middle">12-21</text>
+<text x="713.5" y="762" class="tiny" text-anchor="middle">12-28</text>
+<text x="826.5" y="762" class="tiny" text-anchor="middle">01-04</text>
+<text x="939.5" y="762" class="tiny" text-anchor="middle">01-11</text>
+<text x="1052.5" y="762" class="tiny" text-anchor="middle">01-18</text>
+<text x="1165.5" y="762" class="tiny" text-anchor="middle">01-25</text>
+<text x="30" y="305.0" class="small" text-anchor="middle" transform="rotate(-90 30,305.0)">Active users</text>
+<text x="30" y="649.5" class="small" text-anchor="middle" transform="rotate(-90 30,649.5)">Buyer CVR</text>
+<text x="92" y="792" class="subtitle">Displayed weeks start from 2020-11-23. NAU = observed new, EAU = retained from previous week, RAU = returned after inactive previous week.</text>
+</svg>

@@ -1,10 +1,36 @@
-# GA4 이커머스 운영 BI
+# GA4 이커머스 매출 성장 분석
 
-프로젝트 방향:
+GA4 ecommerce public dataset을 활용해 **주별 매출 성장**이라는 비즈니스 목표를 행동로그 분석과 제품 실험 설계로 연결한 데이터 분석 포트폴리오입니다.
 
-> GA4 Merchandise Store 이벤트 데이터를 BigQuery SQL로 가공해 운영 KPI mart를 만들고, Looker Studio에서 이커머스 KPI를 모니터링하며 CVR 하락 이슈를 퍼널/세그먼트 단위로 진단한다.
+단순 EDA에서 끝내지 않고, raw event log를 분석 가능한 mart로 모델링한 뒤 `Business Goal -> Revenue Structure -> WHO -> WHERE -> WHY -> Product Hypothesis -> A/B Test -> Revenue Opportunity` 흐름으로 문제를 좁혔습니다.
 
-## 데이터 소스
+## 최종 산출물
+
+| Output | Path |
+|---|---|
+| 포트폴리오 PPT | `outputs/pptx/ga4_product_analytics_portfolio_v6.pptx` |
+| 분석 문서 | `docs/analysis_notes/` |
+| 지표 정의 | `docs/metric_definitions.md` |
+| 마트 정의 | `docs/mart_data_dictionary.md` |
+| 코드 인벤토리 | `docs/code_inventory.md` |
+| 최종 분석 SQL | `sql/analysis/` |
+| A/B Test SQL | `sql/ab_tests/` |
+
+## 프로젝트 질문
+
+```text
+주별 매출 성장을 위해 어떤 사용자 세그먼트와 전환 구간을 우선 개선해야 하는가?
+```
+
+본 프로젝트는 주별 매출을 아래와 같이 분해했습니다.
+
+```text
+Weekly Revenue = WAU x Weekly Buyer CVR x ARPPU
+```
+
+이 분해는 단순 프레임워크가 아니라 매출을 구성하는 수학적 identity입니다. 이 중 GA4 행동로그로 제품 경험을 직접 진단하고 실험 가설로 연결하기 좋은 `Weekly Buyer CVR`을 분석 scope로 설정했습니다.
+
+## 데이터
 
 BigQuery public dataset:
 
@@ -12,116 +38,295 @@ BigQuery public dataset:
 `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
 ```
 
-프로젝트 관리용 dataset:
+분석용 BigQuery dataset:
 
 ```sql
 `bigquery-457902.ga4_ops_bi`
 ```
 
-관리 중인 mart 테이블:
+전체 데이터 기간:
 
-| Table | Grain | Rows | Purpose |
-|---|---|---:|---|
-| `daily_kpi_mart` | date | 92 | 핵심 KPI 모니터링 |
-| `daily_funnel_mart` | date x device x source/medium/channel | 2,351 | 퍼널 진단 |
-| `daily_segment_mart` | date x device x source/medium/channel x user type | 4,320 | 세그먼트 drill-down |
-| `monthly_kpi_mart` | month | 3 | 월별 KPI 비교 |
-| `current_month_kpi_mart` | current month | 1 | 상단 scorecard 및 MoM 비교 |
-| `monthly_funnel_mart` | month | 3 | CVR 하락 단계 진단 |
+```text
+2020-11-01 to 2021-01-31
+```
 
-데이터 기간:
-- 2020-11-01 to 2021-01-31
-- GA4 이커머스 이벤트 단위 샘플 데이터
+주요 분석 기간:
 
-## 지표 정의 메모
+```text
+2020-11-23 to 2020-12-20
+```
 
-`orders`는 purchase event count가 아니라 **구매가 발생한 distinct session count**로 정의한다.
+주요 분석 기간은 NAU/EAU/RAU를 비교할 수 있는 prior activity가 확보된 이후의 4주로 설정했습니다.
 
-이유:
-- 이 프로젝트에서는 운영 KPI 해석을 단순화하기 위해 한 세션의 구매를 최대 1건으로 본다.
-- 따라서 `orders = purchase_sessions`로 정의한다.
-- 이 정의에서는 `Revenue = Sessions x Session CVR x AOV`가 정확히 성립한다.
-- transaction ID와 purchase event 중복은 data quality check 항목으로만 관리한다.
+## 왜 Weekly인가
 
-## Grain 결정
+Daily는 요일과 트래픽 변동 노이즈가 커서 user segment와 구매 전환율을 안정적으로 해석하기 어렵습니다.
 
-핵심 mart는 **daily grain**으로 만든다.
+Monthly는 샘플 데이터 기간상 관측치가 적어 cohort/funnel 비교가 둔해집니다.
 
-이유:
-- 운영 BI는 일 단위 모니터링이 자연스럽다.
-- daily row를 Looker Studio에서 week/month로 집계할 수 있다.
-- 일별 추세를 보면 spike/drop과 요일 패턴을 확인하기 쉽다.
-- 데이터가 3개월뿐이므로 월간 장기 추세가 아니라 월별 KPI 이슈 진단으로 활용하는 것이 적절하다.
+Weekly는 `WAU`, `Weekly Buyer CVR`, `ARPPU`를 안정적으로 비교하면서, 후속 A/B test의 traffic sizing과 duration planning으로 연결하기 좋은 단위입니다.
 
-## SQL 파일
+## 데이터 마트
 
-실행 순서:
+GA4 raw event log는 nested field와 event-level grain 때문에 바로 지표를 계산하면 중복과 grain 혼동이 생기기 쉽습니다. 따라서 분석 전 mart를 먼저 구성했습니다.
 
-1. `sql/00_data_profile.sql`
-   - 데이터 기간, 이벤트 구성, 월별 KPI, 일별 completeness 확인
+```text
+Raw GA4 Events
+  -> base_f_event_wide
+  -> base_f_order_items
+  -> core_f_sessions
+  -> core_f_orders
+  -> core_d_items
+```
 
-2. `sql/01_daily_kpi_mart.sql`
-   - date당 1 row
-   - Executive Monitoring 화면에 사용
+| Table | Grain | Purpose |
+|---|---|---|
+| `base_f_event_wide` | 1 row = 1 event | GA4 event_params를 wide하게 펼친 event fact |
+| `base_f_order_items` | 1 row = 1 purchase event x 1 item | 구매 이벤트 안의 item-level fact |
+| `core_f_sessions` | 1 row = 1 session | 세션 단위 행동 및 유입 요약 |
+| `core_f_orders` | 1 row = 1 purchase event | purchase event 기준 order fact |
+| `core_d_items` | 1 row = 1 item_id | 관측된 상품 dimension |
 
-3. `sql/02_daily_funnel_mart.sql`
-   - date, device, channel/source/medium 단위
-   - Funnel Diagnosis 화면에 사용
+주의할 점:
 
-4. `sql/03_daily_segment_mart.sql`
-   - date, device, channel/source/medium, user type 단위
-   - Segment Drill-down 화면에 사용
+```text
+purchase_revenue는 order-level revenue입니다.
+item grain 분석에서는 base_f_order_items.item_revenue를 사용합니다.
+```
 
-5. `sql/04_dq_checks.sql`
-   - identifier, purchase transaction ID, 중복 transaction, revenue reconciliation, session grain 검증
+## 핵심 분석 흐름
 
-6. `sql/build_tables.sql`
-   - `bigquery-457902.ga4_ops_bi` 안의 관리용 mart 테이블을 생성/갱신
+1. GA4 raw event log를 분석 가능한 base/core mart로 모델링
+2. Weekly Revenue를 `WAU x Weekly Buyer CVR x ARPPU`로 분해
+3. WAU를 NAU/EAU/RAU로 나누어 user-week segment별 규모와 구매 전환율 비교
+4. NAU first-session sequential funnel에서 초기 상품 상세 진입 병목 확인
+5. Home Landing NAU를 deep dive 대상으로 설정
+6. Qualified Home을 진단용 세그먼트로 분리해 Home -> View Item 이전 행동 경로 분석
+7. WHY 후보를 source/device/bounce/non-product/discovery selection 관점에서 검정
+8. Discovery entry point 강화 제품 가설로 연결
+9. 가상 데이터 기반 A/B test 설계와 효과 검정
+10. 행동 metric 개선을 modeled revenue opportunity로 환산
 
-7. `sql/06_monthly_kpi_mart.sql`
-   - Looker Studio 월별 KPI 비교용 mart 생성
+## 주요 결과
 
-8. `sql/07_current_month_kpi_mart.sql`
-   - 현재 분석 월과 전월을 비교하는 scorecard용 mart 생성
+### 1. NAU가 가장 큰 분석 대상이었다
 
-9. `sql/08_monthly_funnel_mart.sql`
-   - Loose session funnel 기준 월별 전환 단계 mart 생성
-   - Session → Product View → Add to Cart → Checkout → Purchase
+주요 분석 기간의 Active User-Weeks 기준:
 
-## 자동 생성 대시보드
+| Segment | Share | Buyer CVR |
+|---|---:|---:|
+| NAU | 90.4% | 1.63% |
+| EAU | 5.7% | 7.32% |
+| RAU | 3.9% | 8.09% |
 
-Looker Studio UI 배치와 별도로, 포트폴리오 화면 퀄리티를 빠르게 맞추기 위해 정적 HTML 대시보드를 추가했다.
+NAU가 항상 더 중요한 세그먼트라는 뜻은 아닙니다. 이번 프로젝트에서는 규모가 크고, 첫 세션 행동로그로 제품 경험을 관측할 수 있으며, 실험 가설로 연결하기 좋은 scope로 NAU를 선택했습니다.
 
-- 위치: `dashboard/index.html`
-- 데이터: `data/daily_kpi_mart.csv`, `data/monthly_kpi_mart.csv`, `data/daily_segment_mart.csv`
-- 구성: Executive KPI, Revenue Trend, KPI Decomposition, Conversion Signal, Segment Risk, Diagnosis Note
+### 2. NAU의 병목은 첫 상품 상세 진입에서 크게 나타났다
 
-상단 KPI는 월별 distinct grain 이슈를 피하기 위해 `monthly_kpi_mart` 기준으로 계산하고, 일별 추세 차트는 `daily_kpi_mart`를 사용한다.
+First-session sequential funnel 기준:
 
-대시보드 상단 필터에서 Month, Channel, Device, User Type을 선택할 수 있다. 세그먼트 리스트의 행을 클릭하면 해당 segment 기준으로 KPI와 차트가 다시 계산된다.
+| Segment | View Item Reach | Overall Purchase |
+|---|---:|---:|
+| NAU | 21.28% | 0.75% |
+| EAU | 30.31% | 2.34% |
+| RAU | 40.69% | 3.80% |
+
+퍼널은 같은 first session 안에서 `event_seq` 순서를 강제해 계산했습니다.
+
+```text
+view_item_seq < add_to_cart_seq < begin_checkout_seq < purchase_seq
+```
+
+### 3. Home Landing은 큰 기회 영역이었다
+
+Home Landing NAU first session 전체 기준:
+
+| Metric | Sessions | Rate |
+|---|---:|---:|
+| Home Landing | 46,923 | 100.00% |
+| Reached Item List | 16,909 | 36.04% |
+| Reached View Item | 9,711 | 20.70% |
+| Cart after View Item | 3,516 | 36.21% |
+
+Home에서 View Item으로 가는 경로는 item_list, search, direct, other 등 여러 갈래가 있으므로, item_list를 메인 퍼널 단계로 강제하지 않고 route segment로 분해했습니다.
+
+### 4. WHY 후보는 Discovery 선택 전환 부족으로 좁혔다
+
+Qualified Home에서 가장 큰 미전환 풀은 `home/other exploration -> no view_item` 세그먼트였습니다.
+
+WHY 후보를 source, device, 단순 이탈, 비상품 목적, discovery selection 관점에서 확인한 결과, 가장 설득력 있는 후보는 아래였습니다.
+
+```text
+Home에서 상품 discovery 요소는 노출되지만,
+실제 선택 행동으로 이어지는 비율이 낮다.
+```
+
+관측 근거:
+
+| Event | Session Share |
+|---|---:|
+| scroll | 87.78% |
+| view_promotion | 43.12% |
+| select_promotion | 0.10% |
+
+이 결과는 원인 확정이 아니라, A/B test로 검증할 WHY/HOW 후보를 좁힌 것입니다.
+
+### 5. A/B Test는 Home Landing 전체 ITT로 설계했다
+
+분석 단계에서는 Qualified Home을 사후 진단 세그먼트로 사용했습니다. 하지만 실험에서는 treatment 이후 행동으로 eligibility를 정의하면 편향이 생길 수 있으므로, A/B test는 treatment 이전에 판단 가능한 전체 Home Landing을 대상으로 설계했습니다.
+
+| 항목 | 정의 |
+|---|---|
+| Eligibility Unit | NAU first session with Home Landing |
+| Randomization Unit | `anonymous_id` |
+| Analysis Unit | eligible Home Landing first session |
+| Analysis Principle | ITT, all eligible sessions included |
+
+실험 지표:
+
+| 역할 | 지표 |
+|---|---|
+| Primary | Home -> Item List Rate |
+| Key Secondary | Home -> View Item Rate |
+| Guardrail | Item List -> View Item Rate |
+| Downstream | Purchase Rate, Revenue per Session |
+
+## A/B Test Simulation
+
+실제 실험 로그가 없기 때문에, A/B test는 관측 baseline을 기반으로 synthetic data를 생성해 설계와 평가 방식을 시뮬레이션했습니다.
+
+Sample size 설계:
+
+| 항목 | 값 |
+|---|---:|
+| Baseline Home -> Item List Rate | 36.04% |
+| MDE | +3.50%p |
+| alpha | 0.05 |
+| power | 80% |
+| Required sample | 2,372 / variant |
+| Simulation sample | 24,000 / variant |
+
+가상 데이터 기반 실험 결과:
+
+| Metric | Control | Treatment | Lift | p-value |
+|---|---:|---:|---:|---:|
+| Home -> Item List Rate | 35.73% | 39.73% | +3.99%p | < .001 |
+| Home -> View Item Rate | 20.14% | 22.68% | +2.54%p | < .001 |
+| Item List -> View Item Rate | 56.37% | 57.10% | +0.73%p | Guardrail pass |
+
+해석:
+
+```text
+Discovery entry point 강화는 초기 상품 발견 행동을 개선했다.
+다만 Purchase/Revenue 개선을 직접 검증한 실험으로 해석하지 않고,
+downstream metric은 방향성 확인 및 modeled opportunity 계산에 사용한다.
+```
+
+## Modeled Revenue Opportunity
+
+Synthetic A/B test의 Home -> View Item lift를 기존 downstream baseline에 연결하면 다음과 같은 기회 규모가 추정됩니다.
+
+```text
+Weekly Home Landing Sessions = 46,923 / 4 = 11,731
+Home -> View Item lift = +2.54%p
+
+Additional View Item
+= 11,731 x 2.54%p
+= 298 / week
+
+Revenue Opportunity
+= 298 x 5.1% x $75
+= 약 $1,140 / week
+
+Weekly Revenue Share
+= $1,140 / $49,477.5
+= 약 2.3%
+```
 
 주의:
-- 전체 월별 KPI는 exact monthly mart 기준이다.
-- Channel/Device/User Type drill-down은 `daily_segment_mart`의 daily grain을 선택 기간 안에서 합산한 방향성 분석용이다.
-- 1월 Revenue 하락은 원천 BigQuery 월별 exact 집계에서도 확인된다.
-- purchase event와 transaction ID에는 중복이 있으므로, 이 프로젝트의 `orders`는 purchase event count가 아니라 purchase session count로 정의한다.
 
-## Looker Studio 대시보드 구성
+```text
+위 수치는 실제 매출 uplift가 아니라 directional modeled opportunity입니다.
+새롭게 View Item에 도달한 사용자가 기존 View Item 사용자와 동일한 downstream purchase rate와 revenue per purchase를 가진다는 가정이 포함됩니다.
+```
 
-추천 페이지:
+## 폴더 구조
 
-1. Executive Monitoring
-2. Funnel Diagnosis
-3. Segment Drill-down & Action
+```text
+.
+├── README.md
+├── docs/
+│   ├── analysis_notes/
+│   ├── code_inventory.md
+│   ├── event_dictionary.md
+│   ├── mart_data_dictionary.md
+│   ├── metric_definitions.md
+│   ├── portfolio_defense_notes.md
+│   └── portfolio_slide_plan.md
+├── outputs/
+│   ├── ab_tests/
+│   ├── data/
+│   ├── figures/
+│   └── pptx/
+├── scripts/
+└── sql/
+    ├── ab_tests/
+    ├── analysis/
+    ├── base_marts/
+    ├── core_marts/
+    └── eda/
+```
 
-핵심 스토리:
+## 재현 방법
 
-Revenue = Sessions x CVR x AOV
+### 1. BigQuery mart 생성
 
-Revenue가 하락했을 때 Sessions, CVR, AOV 중 어떤 요소가 영향을 주었는지 먼저 분해한다. CVR 하락이 확인되면 아래 축으로 원인을 좁힌다.
+```text
+sql/base_marts/00_build_base_marts.sql
+sql/core_marts/00_build_core_marts.sql
+```
 
-- Funnel step
-- Device
-- Channel/source/medium
-- New vs Returning user
-- 필요 시 item/category
+### 2. 최종 분석 재현
+
+```text
+sql/analysis/01_main_period_revenue_cohort_funnel.sql
+sql/analysis/02_home_discovery_routes.sql
+sql/analysis/03_home_discovery_why.sql
+```
+
+### 3. A/B test simulation 재현
+
+```bash
+python3 scripts/generate_home_discovery_ab_test.py
+```
+
+생성되는 주요 output:
+
+```text
+outputs/ab_tests/home_discovery_ab_test_summary.csv
+outputs/ab_tests/home_discovery_ab_test_power_plan.csv
+```
+
+`home_discovery_ab_test_synthetic.csv`는 row-level synthetic data이므로 GitHub에는 포함하지 않고, 스크립트로 재생성합니다.
+
+## 참고 문서
+
+| Document | Purpose |
+|---|---|
+| `docs/analysis_notes/01_revenue_growth_flow.md` | Revenue decomposition, WHO, first-session funnel |
+| `docs/analysis_notes/02_home_discovery_funnel.md` | Home Landing route segment 분석 |
+| `docs/analysis_notes/03_home_discovery_why_hypothesis.md` | WHY 후보 검정과 제품 가설 |
+| `docs/analysis_notes/04_ab_test_design_and_evaluation.md` | A/B test 설계, sample size, simulated result |
+| `docs/metric_definitions.md` | 지표 정의와 분자/분모 |
+| `docs/mart_data_dictionary.md` | mart grain과 주요 컬럼 |
+| `docs/code_inventory.md` | SQL, script, output 인벤토리 |
+
+## 해석 시 주의사항
+
+```text
+1. anonymous_id는 GA4 user_pseudo_id 기반 익명 식별자이며 실제 회원 ID가 아닙니다.
+2. 4주 합산값은 unique user가 아니라 Active User-Weeks 기준입니다.
+3. Qualified Home은 분석용 사후 행동 세그먼트이며 A/B eligibility가 아닙니다.
+4. A/B test는 실제 운영 실험이 아니라 synthetic data 기반 시뮬레이션입니다.
+5. Modeled Revenue Opportunity는 방향성 추정치이며 실제 매출 uplift로 해석하지 않습니다.
+```

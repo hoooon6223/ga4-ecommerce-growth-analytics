@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}.title{font-size:23px;font-weight:700}.subtitle{font-size:13px;fill:#666}.label{font-size:14px;font-weight:700}.small{font-size:12px}.tiny{font-size:11px}.grid{stroke:#e9edf3;stroke-width:1}.axis{stroke:#d9dee7;stroke-width:1}</style>
+<text x="88" y="40" class="title">Weekly Revenue Decomposition</text>
+<text x="88" y="64" class="subtitle">Weekly Revenue = WAU x Weekly Buyer CVR x ARPPU. Warm-up weeks are excluded.</text>
+<text x="88" y="88" class="subtitle">This chart shows whether weekly revenue movement aligns more with user scale, conversion, or revenue per paying user.</text>
+<text x="88" y="102" class="label">Weekly Revenue</text>
+<line x1="88" y1="368.0" x2="625.0" y2="368.0" class="grid"/>
+<text x="76" y="372.0" class="small" text-anchor="end">$0</text>
+<line x1="88" y1="305.5" x2="625.0" y2="305.5" class="grid"/>
+<text x="76" y="309.5" class="small" text-anchor="end">$17,660</text>
+<line x1="88" y1="243.0" x2="625.0" y2="243.0" class="grid"/>
+<text x="76" y="247.0" class="small" text-anchor="end">$35,320</text>
+<line x1="88" y1="180.5" x2="625.0" y2="180.5" class="grid"/>
+<text x="76" y="184.5" class="small" text-anchor="end">$52,981</text>
+<line x1="88" y1="118.0" x2="625.0" y2="118.0" class="grid"/>
+<text x="76" y="122.0" class="small" text-anchor="end">$70,641</text>
+<line x1="88" y1="368" x2="625.0" y2="368" class="axis"/>
+<line x1="88" y1="118" x2="88" y2="368" class="axis"/>
+<rect x="99.3" y="198.5" width="31.1" height="169.5" fill="#4C78A8" opacity="0.9"/>
+<rect x="153.0" y="216.3" width="31.1" height="151.7" fill="#4C78A8" opacity="0.9"/>
+<rect x="206.7" y="156.1" width="31.1" height="211.9" fill="#4C78A8" opacity="0.9"/>
+<rect x="260.4" y="200.7" width="31.1" height="167.3" fill="#4C78A8" opacity="0.9"/>
+<rect x="314.1" y="315.9" width="31.1" height="52.1" fill="#4C78A8" opacity="0.9"/>
+<rect x="367.8" y="331.7" width="31.1" height="36.3" fill="#4C78A8" opacity="0.9"/>
+<rect x="421.5" y="334.5" width="31.1" height="33.5" fill="#4C78A8" opacity="0.9"/>
+<rect x="475.2" y="321.3" width="31.1" height="46.7" fill="#4C78A8" opacity="0.9"/>
+<rect x="528.9" y="273.9" width="31.1" height="94.1" fill="#4C78A8" opacity="0.9"/>
+<rect x="582.6" y="348.4" width="31.1" height="19.6" fill="#4C78A8" opacity="0.9"/>
+<line x1="114.8" y1="368" x2="114.8" y2="373" class="axis"/>
+<line x1="168.5" y1="368" x2="168.5" y2="373" class="axis"/>
+<line x1="222.2" y1="368" x2="222.2" y2="373" class="axis"/>
+<line x1="276.0" y1="368" x2="276.0" y2="373" class="axis"/>
+<line x1="329.7" y1="368" x2="329.7" y2="373" class="axis"/>
+<line x1="383.4" y1="368" x2="383.4" y2="373" class="axis"/>
+<line x1="437.1" y1="368" x2="437.1" y2="373" class="axis"/>
+<line x1="490.8" y1="368" x2="490.8" y2="373" class="axis"/>
+<line x1="544.5" y1="368" x2="544.5" y2="373" class="axis"/>
+<line x1="598.1" y1="368" x2="598.1" y2="373" class="axis"/>
+<text x="695.0" y="102" class="label">WAU</text>
+<line x1="695.0" y1="368.0" x2="1232.0" y2="368.0" class="grid"/>
+<text x="683.0" y="372.0" class="small" text-anchor="end">0</text>
+<line x1="695.0" y1="305.5" x2="1232.0" y2="305.5" class="grid"/>
+<text x="683.0" y="309.5" class="small" text-anchor="end">9,292</text>
+<line x1="695.0" y1="243.0" x2="1232.0" y2="243.0" class="grid"/>
+<text x="683.0" y="247.0" class="small" text-anchor="end">18,584</text>
+<line x1="695.0" y1="180.5" x2="1232.0" y2="180.5" class="grid"/>
+<text x="683.0" y="184.5" class="small" text-anchor="end">27,876</text>
+<line x1="695.0" y1="118.0" x2="1232.0" y2="118.0" class="grid"/>
+<text x="683.0" y="122.0" class="small" text-anchor="end">37,168</text>
+<line x1="695.0" y1="368" x2="1232.0" y2="368" class="axis"/>
+<line x1="695.0" y1="118" x2="695.0" y2="368" class="axis"/>
+<polyline points="721.9,219.2 775.6,203.0 829.2,156.1 883.0,183.6 936.6,239.3 990.4,247.3 1044.0,201.8 1097.8,210.8 1151.4,215.7 1205.1,222.8" fill="none" stroke="#72B7B2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="721.9" cy="219.2" r="3.7" fill="#72B7B2"/>
+<circle cx="775.6" cy="203.0" r="3.7" fill="#72B7B2"/>
+<circle cx="829.2" cy="156.1" r="3.7" fill="#72B7B2"/>
+<circle cx="883.0" cy="183.6" r="3.7" fill="#72B7B2"/>
+<circle cx="936.6" cy="239.3" r="3.7" fill="#72B7B2"/>
+<circle cx="990.4" cy="247.3" r="3.7" fill="#72B7B2"/>
+<circle cx="1044.0" cy="201.8" r="3.7" fill="#72B7B2"/>
+<circle cx="1097.8" cy="210.8" r="3.7" fill="#72B7B2"/>
+<circle cx="1151.4" cy="215.7" r="3.7" fill="#72B7B2"/>
+<circle cx="1205.1" cy="222.8" r="3.7" fill="#72B7B2"/>
+<line x1="721.9" y1="368" x2="721.9" y2="373" class="axis"/>
+<line x1="775.6" y1="368" x2="775.6" y2="373" class="axis"/>
+<line x1="829.2" y1="368" x2="829.2" y2="373" class="axis"/>
+<line x1="883.0" y1="368" x2="883.0" y2="373" class="axis"/>
+<line x1="936.6" y1="368" x2="936.6" y2="373" class="axis"/>
+<line x1="990.4" y1="368" x2="990.4" y2="373" class="axis"/>
+<line x1="1044.0" y1="368" x2="1044.0" y2="373" class="axis"/>
+<line x1="1097.8" y1="368" x2="1097.8" y2="373" class="axis"/>
+<line x1="1151.4" y1="368" x2="1151.4" y2="373" class="axis"/>
+<line x1="1205.1" y1="368" x2="1205.1" y2="373" class="axis"/>
+<text x="88" y="434" class="label">Weekly Buyer CVR</text>
+<line x1="88" y1="700.0" x2="625.0" y2="700.0" class="grid"/>
+<text x="76" y="704.0" class="small" text-anchor="end">0.0%</text>
+<line x1="88" y1="637.5" x2="625.0" y2="637.5" class="grid"/>
+<text x="76" y="641.5" class="small" text-anchor="end">0.7%</text>
+<line x1="88" y1="575.0" x2="625.0" y2="575.0" class="grid"/>
+<text x="76" y="579.0" class="small" text-anchor="end">1.4%</text>
+<line x1="88" y1="512.5" x2="625.0" y2="512.5" class="grid"/>
+<text x="76" y="516.5" class="small" text-anchor="end">2.1%</text>
+<line x1="88" y1="450.0" x2="625.0" y2="450.0" class="grid"/>
+<text x="76" y="454.0" class="small" text-anchor="end">2.8%</text>
+<line x1="88" y1="700" x2="625.0" y2="700" class="axis"/>
+<line x1="88" y1="450" x2="88" y2="700" class="axis"/>
+<polyline points="114.8,496.3 168.5,489.0 222.2,488.1 276.0,527.1 329.7,591.4 383.4,631.2 437.1,641.1 490.8,613.1 544.5,553.3 598.1,571.4" fill="none" stroke="#F58518" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="114.8" cy="496.3" r="3.7" fill="#F58518"/>
+<circle cx="168.5" cy="489.0" r="3.7" fill="#F58518"/>
+<circle cx="222.2" cy="488.1" r="3.7" fill="#F58518"/>
+<circle cx="276.0" cy="527.1" r="3.7" fill="#F58518"/>
+<circle cx="329.7" cy="591.4" r="3.7" fill="#F58518"/>
+<circle cx="383.4" cy="631.2" r="3.7" fill="#F58518"/>
+<circle cx="437.1" cy="641.1" r="3.7" fill="#F58518"/>
+<circle cx="490.8" cy="613.1" r="3.7" fill="#F58518"/>
+<circle cx="544.5" cy="553.3" r="3.7" fill="#F58518"/>
+<circle cx="598.1" cy="571.4" r="3.7" fill="#F58518"/>
+<text x="114.8" y="724" class="tiny" text-anchor="middle">11-23</text>
+<text x="168.5" y="724" class="tiny" text-anchor="middle">11-30</text>
+<text x="222.2" y="724" class="tiny" text-anchor="middle">12-07</text>
+<text x="276.0" y="724" class="tiny" text-anchor="middle">12-14</text>
+<text x="329.7" y="724" class="tiny" text-anchor="middle">12-21</text>
+<text x="383.4" y="724" class="tiny" text-anchor="middle">12-28</text>
+<text x="437.1" y="724" class="tiny" text-anchor="middle">01-04</text>
+<text x="490.8" y="724" class="tiny" text-anchor="middle">01-11</text>
+<text x="544.5" y="724" class="tiny" text-anchor="middle">01-18</text>
+<text x="598.1" y="724" class="tiny" text-anchor="middle">01-25</text>
+<text x="695.0" y="434" class="label">ARPPU</text>
+<line x1="695.0" y1="700.0" x2="1232.0" y2="700.0" class="grid"/>
+<text x="683.0" y="704.0" class="small" text-anchor="end">$0</text>
+<line x1="695.0" y1="637.5" x2="1232.0" y2="637.5" class="grid"/>
+<text x="683.0" y="641.5" class="small" text-anchor="end">$28</text>
+<line x1="695.0" y1="575.0" x2="1232.0" y2="575.0" class="grid"/>
+<text x="683.0" y="579.0" class="small" text-anchor="end">$57</text>
+<line x1="695.0" y1="512.5" x2="1232.0" y2="512.5" class="grid"/>
+<text x="683.0" y="516.5" class="small" text-anchor="end">$85</text>
+<line x1="695.0" y1="450.0" x2="1232.0" y2="450.0" class="grid"/>
+<text x="683.0" y="454.0" class="small" text-anchor="end">$114</text>
+<line x1="695.0" y1="700" x2="1232.0" y2="700" class="axis"/>
+<line x1="695.0" y1="450" x2="695.0" y2="700" class="axis"/>
+<polyline points="721.9,488.1 775.6,535.2 829.2,521.4 883.0,501.3 936.6,559.3 990.4,534.0 1044.0,570.8 1097.8,570.6 1151.4,540.7 1205.1,660.2" fill="none" stroke="#B279A2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="721.9" cy="488.1" r="3.7" fill="#B279A2"/>
+<circle cx="775.6" cy="535.2" r="3.7" fill="#B279A2"/>
+<circle cx="829.2" cy="521.4" r="3.7" fill="#B279A2"/>
+<circle cx="883.0" cy="501.3" r="3.7" fill="#B279A2"/>
+<circle cx="936.6" cy="559.3" r="3.7" fill="#B279A2"/>
+<circle cx="990.4" cy="534.0" r="3.7" fill="#B279A2"/>
+<circle cx="1044.0" cy="570.8" r="3.7" fill="#B279A2"/>
+<circle cx="1097.8" cy="570.6" r="3.7" fill="#B279A2"/>
+<circle cx="1151.4" cy="540.7" r="3.7" fill="#B279A2"/>
+<circle cx="1205.1" cy="660.2" r="3.7" fill="#B279A2"/>
+<text x="721.9" y="724" class="tiny" text-anchor="middle">11-23</text>
+<text x="775.6" y="724" class="tiny" text-anchor="middle">11-30</text>
+<text x="829.2" y="724" class="tiny" text-anchor="middle">12-07</text>
+<text x="883.0" y="724" class="tiny" text-anchor="middle">12-14</text>
+<text x="936.6" y="724" class="tiny" text-anchor="middle">12-21</text>
+<text x="990.4" y="724" class="tiny" text-anchor="middle">12-28</text>
+<text x="1044.0" y="724" class="tiny" text-anchor="middle">01-04</text>
+<text x="1097.8" y="724" class="tiny" text-anchor="middle">01-11</text>
+<text x="1151.4" y="724" class="tiny" text-anchor="middle">01-18</text>
+<text x="1205.1" y="724" class="tiny" text-anchor="middle">01-25</text>
+<text x="88" y="792" class="subtitle">WAU and buyer users use anonymous_id, not backend customer IDs. ARPPU = weekly revenue / weekly buyer users.</text>
+</svg>
