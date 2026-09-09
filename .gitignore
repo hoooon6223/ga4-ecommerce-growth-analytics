@@ -11,8 +11,8 @@ __pycache__/
 .codex-finalizer/
 .chart-data-*/
 
-# Generated presentation drafts
-outputs/pptx/ga4_product_analytics_portfolio_v[1-5].pptx
+# Generated presentation files
+outputs/pptx/*.pptx
 
 # Regenerable synthetic row-level experiment data
 outputs/ab_tests/home_discovery_ab_test_synthetic.csv

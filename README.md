@@ -8,7 +8,6 @@ GA4 ecommerce public dataset을 활용해 **주별 매출 성장**이라는 비�
 
 | Output | Path |
 |---|---|
-| 포트폴리오 PPT | `outputs/pptx/ga4_product_analytics_portfolio_v6.pptx` |
 | 분석 문서 | `docs/analysis_notes/` |
 | 지표 정의 | `docs/metric_definitions.md` |
 | 마트 정의 | `docs/mart_data_dictionary.md` |
@@ -261,13 +260,11 @@ Weekly Revenue Share
 │   ├── event_dictionary.md
 │   ├── mart_data_dictionary.md
 │   ├── metric_definitions.md
-│   ├── portfolio_defense_notes.md
-│   └── portfolio_slide_plan.md
+│   └── learning/
 ├── outputs/
 │   ├── ab_tests/
 │   ├── data/
-│   ├── figures/
-│   └── pptx/
+│   └── figures/
 ├── scripts/
 └── sql/
     ├── ab_tests/

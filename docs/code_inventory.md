@@ -102,7 +102,6 @@ PNG 파일은 동일 figure의 렌더링 확인 또는 발표 자료 삽입용 �
 | `docs/event_dictionary.md` | GA4 event_name과 event_params 해석 |
 | `docs/mart_data_dictionary.md` | mart grain, PK, 주요 컬럼 정의 |
 | `docs/metric_definitions.md` | 분석 지표, 퍼널 지표, 실험 지표 정의 |
-| `docs/portfolio_defense_notes.md` | 포트폴리오 예상 질문과 방어 논리 |
 | `docs/learning/mart_design.md` | mart 설계 과정에서 배운 점 회고 |
 
 ## 정리 기준
