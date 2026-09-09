@@ -5,7 +5,7 @@ const workspaceDir = process.cwd();
 const skillDir = process.env.PRESENTATIONS_SKILL_DIR
   ?? "/Users/hyeon/.codex/plugins/cache/openai-primary-runtime/presentations/26.904.11930/skills/presentations";
 const tmpDir = path.join(workspaceDir, ".codex-build", "portfolio-ppt");
-const finalPath = path.join(workspaceDir, "outputs", "pptx", "ga4_product_analytics_portfolio_v6.pptx");
+const finalPath = path.join(workspaceDir, "outputs", "pptx", "ga4_product_analytics_portfolio_v7.pptx");
 const runtimePython = process.env.RUNTIME_PYTHON
   ?? "/Users/hyeon/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3";
 const runtimeNodeModules = process.env.RUNTIME_NODE_MODULES
@@ -555,7 +555,7 @@ await finalizePresentation({
   materializeLiteralChartWorkbooks: true,
   fontPolicy,
   verifyArtifactToolImport: true,
-  receiptPath: path.join(workspaceDir, ".codex-finalizer", "ga4_product_analytics_portfolio_v6.validation.json"),
+  receiptPath: path.join(workspaceDir, ".codex-finalizer", "ga4_product_analytics_portfolio_v7.validation.json"),
 });
 
 console.log(finalPath);
