@@ -6,6 +6,13 @@
 
 본 문서는 앞선 GA4 분석에서 도출한 baseline과 제품 가설을 기반으로 구성한 synthetic experiment dataset을 사용한다. 목적은 실험 설계, 지표 정의, 통계 검정, 의사결정 기준, modeled business impact를 보여주는 것이다.
 
+주의:
+
+```text
+Synthetic A/B 결과는 실제 제품 효과를 검증한 production experiment가 아니다.
+사전에 설정한 효과가 분석 파이프라인에서 기대 방향으로 검출되는지 확인하기 위한 시뮬레이션이다.
+```
+
 ## 분석 집단과 실험 집단의 분리
 
 ```text
@@ -163,7 +170,7 @@ Treatment: 24,000 eligible first sessions
 해석:
 
 ```text
-Treatment는 Primary metric인 Home -> Item List Rate를 유의하게 개선했다.
+Synthetic A/B에서 사전에 설정한 Primary metric 효과가 기대 방향으로 검출되었다.
 Key Secondary metric인 Home -> View Item Rate도 함께 증가했고,
 95% CI 기준으로도 0보다 큰 lift가 관측되었다.
 
@@ -178,13 +185,12 @@ Purchase Rate와 Revenue per Session도 악화되지 않았지만,
 Decision:
 
 ```text
-Primary와 Key Secondary가 모두 개선되고,
+Primary와 Key Secondary가 모두 기대 방향으로 검출되고,
 Item List -> View Item guardrail의 non-inferiority 기준도 통과했으므로
-discovery entry point 강화가 초기 상품 발견 행동을 개선한다는 제품 가설을 지지한다.
+분석 파이프라인이 사전 설정한 discovery behavior lift를 식별할 수 있음을 확인했다.
 
-다만 본 실험으로 purchase/revenue 개선 효과가 직접 확인되었다고 판단하지는 않는다.
-매출 성장이라는 Business Goal 아래에서,
-초기 discovery 행동 레버의 causal validation에 성공한 것으로 해석한다.
+다만 본 simulation으로 실제 제품 효과나 purchase/revenue 개선 효과가 확인되었다고 판단하지는 않는다.
+실제 제품 효과는 production A/B test에서 검증해야 한다.
 ```
 
 ## Modeled Business Impact
@@ -193,7 +199,7 @@ discovery entry point 강화가 초기 상품 발견 행동을 개선한다는 �
 
 ```text
 Average Weekly Revenue = $49,477.5
-Weekly eligible Home Landing sessions = 46,923 / 4 = 11,731
+Weekly Eligible NAU Home First Sessions = 46,923 / 4 = 11,731
 Home -> View Item absolute lift = +2.54%p
 
 Additional View Item sessions per week

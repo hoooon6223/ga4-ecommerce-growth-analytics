@@ -453,8 +453,8 @@ Promotion diagnostic 지표:
 
 | 지표 | 계산식 | 분모 | 해석 기준 |
 |---|---|---|---|
-| Promotion View Rate | Sessions with view_promotion / Home Landing Sessions | Home Landing Sessions | home에서 discovery 요소 노출이 발생했는지 확인 |
-| Promotion Select Rate | Sessions with select_promotion / Home Landing Sessions | Home Landing Sessions | 노출된 discovery 요소가 선택 행동으로 이어지는지 확인 |
+| Promotion View Rate | Sessions with view_promotion / target segment sessions | 분석 목적별 target segment | home에서 discovery 요소 노출이 발생했는지 확인 |
+| Promotion Select Rate | Sessions with select_promotion / target segment sessions | 분석 목적별 target segment | 노출된 discovery 요소가 선택 행동으로 이어지는지 확인 |
 | Promotion Selected Share | Promotion Selected Sessions / Home Landing Sessions | Home Landing Sessions | promotion selected 그룹의 규모 |
 | Promotion Behavior Share | Sessions by promotion_behavior / Home Landing Sessions | Home Landing Sessions | no view, view no select, selected 세그먼트 구성 |
 | Selected Item List Rate | Item List Sessions among promotion selected / Promotion Selected Sessions | Promotion Selected Sessions | promotion 선택 후 item_list 도달률 |
@@ -468,6 +468,9 @@ promotion selection이 구매나 view_item을 인과적으로 증가시켰다고
 
 WHY 단계에서는 "노출은 있으나 선택 전환이 낮다"는 후보를 좁히는 데 사용하고,
 인과 검증은 A/B test 설계에서 수행한다.
+
+03 WHY 문서의 핵심 수치인 view_promotion 43.12%, select_promotion 0.10%는
+`home/other exploration -> no_view_item` target segment 17,711 sessions를 분모로 한다.
 ```
 
 ## 매출 지표 기준
@@ -613,8 +616,9 @@ required sample = 약 2,372 eligible first sessions per variant
 synthetic A/B test dataset은 실제 실험 로그가 아니라
 실험 설계와 평가 방식을 보여주기 위한 산출물이다.
 
-따라서 실험 결과는 "초기 discovery 행동 레버의 causal validation 예시"로 해석하고,
-purchase/revenue 개선 효과가 실제로 검증되었다고 단정하지 않는다.
+따라서 synthetic A/B 결과는 사전에 설정한 효과가 분석 파이프라인에서
+기대 방향으로 검출되는지 확인한 결과로 해석한다.
+실제 제품 효과와 purchase/revenue 개선 효과는 production A/B test에서 검증해야 한다.
 ```
 
 ## 주요 주의사항

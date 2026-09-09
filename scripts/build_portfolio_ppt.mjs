@@ -267,7 +267,7 @@ function addNotes(slide, text) {
 // Slide 4
 {
   const s = addSlide("타겟 선정: 어떤 사용자를 우선 볼 것인가", "WHO");
-  textbox(s, "NAU는 가장 큰 user-week pool이면서 Buyer CVR이 낮아 first-session 전환 개선 기회를 보기 좋은 대상이었다.", 72, 112, 980, 50, { fontSize: 22, bold: true });
+  textbox(s, "Merchandise Store는 구매 목적의 이커머스이므로 신규/첫 방문 경험이 중요하며, 데이터에서도 NAU가 큰 pool로 관측되었다.", 72, 112, 980, 50, { fontSize: 21, bold: true });
   const chart = s.charts.add("bar", {
     position: { left: 90, top: 205, width: 630, height: 330 },
     categories: ["NAU", "EAU", "RAU"],
@@ -284,7 +284,7 @@ function addNotes(slide, text) {
     ["EAU", "5.7%", "7.32%"],
     ["RAU", "3.9%", "8.09%"],
   ], 790, 218, 330, 170, [120, 100, 110]);
-  note(s, "NAU가 항상 더 중요하다는 뜻이 아니다. 규모가 크고 첫 세션 행동이 관측 가능해 실험 가설로 연결하기 좋은 scope다.", 790, 420, 330, 96);
+  note(s, "NAU가 항상 더 중요하다는 뜻이 아니다. 관측 데이터와 프로젝트 목적상 first-session 전환 진단에 적합한 scope다.", 790, 420, 330, 96);
   addNotes(s, "Active User-Weeks are not four-week unique users. They are weekly user observations across the main period.");
 }
 
@@ -388,7 +388,7 @@ function addNotes(slide, text) {
     xAxis: { textStyle: { fontSize: 10, fill: C.ink } },
   });
   applyChartFont(chart);
-  note(s, "관측 데이터는 원인을 확정하지 않는다. 가장 설명력 있는 WHY candidate를 causal test로 넘긴다.", 160, 515, 890, 72);
+  note(s, "Target segment: home/other exploration -> no_view_item, n=17,711. Session share: view_promotion 43.12%, select_promotion 0.10%. 관측 데이터는 WHY candidate를 좁히는 데 사용한다.", 160, 515, 890, 72);
   addNotes(s, "Source data: docs/analysis_notes/03_home_discovery_why_hypothesis.md and sql/analysis/03_home_discovery_why.sql.");
 }
 
@@ -441,8 +441,8 @@ function addNotes(slide, text) {
 
 // Slide 11
 {
-  const s = addSlide("실험 결과: 가상 데이터 기반 효과 검정", "Simulation");
-  textbox(s, "Synthetic A/B test에서 Home discovery entry point 강화는 초기 discovery 행동을 유의하게 개선했다.", 72, 108, 980, 42, { fontSize: 21, bold: true });
+  const s = addSlide("실험 결과: 가상 데이터 기반 평가 파이프라인 검정", "Simulation");
+  textbox(s, "Synthetic A/B에서 사전에 설정한 효과가 분석 파이프라인에서 기대 방향으로 검출되는지 확인했다.", 72, 108, 980, 42, { fontSize: 21, bold: true });
   const chart = s.charts.add("bar", {
     position: { left: 70, top: 205, width: 670, height: 310 },
     categories: ["Home to Item List", "Home to View Item", "Item List to View Item"],
@@ -470,7 +470,7 @@ function addNotes(slide, text) {
     ["Required sample", "2,372 per variant"],
     ["Simulation sample", "24,000 per variant"],
   ], 790, 430, 390, 170, [190, 200]);
-  addNotes(s, "Synthetic data based on observed Home Landing baseline. Required sample is the minimum for MDE detection; 24,000 per variant reflects the four-week traffic scale.");
+  addNotes(s, "Synthetic data based on observed Home Landing baseline. Required sample is the minimum for MDE detection; 24,000 per variant reflects the four-week traffic scale. This simulation checks whether the analysis pipeline detects the pre-specified effect direction. Actual product impact must be validated in a production A/B test.");
 }
 
 // Slide 12
@@ -478,7 +478,7 @@ function addNotes(slide, text) {
   const s = addSlide("매출 기회 추정: Modeled Revenue Opportunity", "Opportunity");
   textbox(s, "초기 discovery 행동 개선이 기존 downstream 전환율로 이어진다면 전체 주 매출 기준 약 2.3%의 modeled opportunity가 있다.", 72, 108, 980, 46, { fontSize: 21, bold: true });
   const flow = [
-    ["11,731", "Weekly Home Sessions", C.blue],
+    ["11,731", "Weekly Eligible NAU Home First Sessions", C.blue],
     ["+298", "Additional View Item", C.teal],
     ["≈ 15", "Additional Purchases", C.amber],
     ["≈ $1.14K", "Revenue / week", C.green],

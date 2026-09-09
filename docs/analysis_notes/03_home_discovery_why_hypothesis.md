@@ -100,6 +100,13 @@ item_list/search/view_item으로 이어지지 않았다.
 이벤트 패턴을 보면 `scroll`, `user_engagement`, `view_promotion`은 관측되지만
 promotion 선택 행동인 `select_promotion`은 매우 낮았다.
 
+분모:
+
+```text
+Target segment = home/other exploration -> no_view_item
+n = 17,711 sessions
+```
+
 | Event Name | Sessions | Session Share |
 |---|---:|---:|
 | page_view | 17,677 | 99.81% |

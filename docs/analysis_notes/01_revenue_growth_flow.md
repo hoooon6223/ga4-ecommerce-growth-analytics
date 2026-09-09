@@ -197,7 +197,7 @@ Buyer User-Weeks도 주별 구매 사용자 관측치의 합이다.
 관찰:
 
 ```text
-1. NAU는 Active User-Week의 90.4%를 차지해 방문 규모가 압도적으로 크다.
+1. NAU는 Active User-Week 기준 가장 큰 user-week pool로 관측되었다.
 2. 하지만 NAU의 Buyer CVR은 1.63%로 EAU 7.32%, RAU 8.09%보다 낮다.
 3. EAU/RAU는 규모는 작지만 구매 전환 효율과 구매자당 매출이 높다.
 ```
@@ -260,8 +260,8 @@ GA4 행동로그를 활용해 사용자의 상품 발견과 구매 전환 경험
 구매 고려 단계로 진입하는지 먼저 확인한다.
 ```
 
-주요 분석 기간에서 NAU는 Active User-Week의 90.4%를 차지하지만 Buyer CVR은 1.63%로 낮다.
-이는 NAU가 이미 큰 유입 규모를 가지고 있으나 구매 전환 효율은 낮다는 뜻이다.
+Merchandise Store는 상품 구매 목적의 이커머스이므로 신규/첫 방문 경험이 중요한 서비스 맥락이다.
+이번 데이터에서도 NAU가 가장 큰 user-week pool로 관측되었고, Buyer CVR은 1.63%로 낮았다.
 
 따라서 본 분석에서는 현재 유입된 NAU가 구매자로 전환되는 과정,
 즉 NAU Buyer CVR 개선 기회를 우선 확인한다.

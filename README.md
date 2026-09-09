@@ -103,7 +103,7 @@ item grain 분석에서는 base_f_order_items.item_revenue를 사용합니다.
 6. Qualified Home을 진단용 세그먼트로 분리해 Home -> View Item 이전 행동 경로 분석
 7. WHY 후보를 source/device/bounce/non-product/discovery selection 관점에서 검정
 8. Discovery entry point 강화 제품 가설로 연결
-9. 가상 데이터 기반 A/B test 설계와 효과 검정
+9. 가상 데이터 기반 A/B test 설계와 평가 파이프라인 검정
 10. 행동 metric 개선을 modeled revenue opportunity로 환산
 
 ## 주요 결과
@@ -118,7 +118,8 @@ item grain 분석에서는 base_f_order_items.item_revenue를 사용합니다.
 | EAU | 5.7% | 7.32% |
 | RAU | 3.9% | 8.09% |
 
-NAU가 항상 더 중요한 세그먼트라는 뜻은 아닙니다. 이번 프로젝트에서는 규모가 크고, 첫 세션 행동로그로 제품 경험을 관측할 수 있으며, 실험 가설로 연결하기 좋은 scope로 NAU를 선택했습니다.
+Merchandise Store는 상품 구매 목적의 이커머스이므로 신규/첫 방문 경험이 중요한 서비스 맥락입니다.
+이번 데이터에서도 NAU가 가장 큰 user-week pool로 관측되었고, 첫 세션 행동로그로 제품 경험을 진단해 실험 가설로 연결하기 좋은 scope였기 때문에 NAU를 선택했습니다.
 
 ### 2. NAU의 병목은 첫 상품 상세 진입에서 크게 나타났다
 
@@ -161,6 +162,11 @@ Home에서 상품 discovery 요소는 노출되지만,
 ```
 
 관측 근거:
+
+```text
+Target segment = home/other exploration -> no_view_item
+n = 17,711 sessions
+```
 
 | Event | Session Share |
 |---|---:|
@@ -216,9 +222,12 @@ Sample size 설계:
 해석:
 
 ```text
-Discovery entry point 강화는 초기 상품 발견 행동을 개선했다.
-다만 Purchase/Revenue 개선을 직접 검증한 실험으로 해석하지 않고,
-downstream metric은 방향성 확인 및 modeled opportunity 계산에 사용한다.
+Synthetic A/B에서 사전에 설정한 효과가 분석 파이프라인에서
+기대 방향으로 검출되는지 확인했다.
+
+실제 제품 효과는 production A/B test에서 검증해야 한다.
+Purchase/Revenue downstream metric은 방향성 확인 및
+modeled opportunity 계산에만 사용한다.
 ```
 
 ## Modeled Revenue Opportunity
@@ -226,7 +235,7 @@ downstream metric은 방향성 확인 및 modeled opportunity 계산에 사용�
 Synthetic A/B test의 Home -> View Item lift를 기존 downstream baseline에 연결하면 다음과 같은 기회 규모가 추정됩니다.
 
 ```text
-Weekly Home Landing Sessions = 46,923 / 4 = 11,731
+Weekly Eligible NAU Home First Sessions = 46,923 / 4 = 11,731
 Home -> View Item lift = +2.54%p
 
 Additional View Item
