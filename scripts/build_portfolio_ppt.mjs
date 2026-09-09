@@ -5,7 +5,7 @@ const workspaceDir = process.cwd();
 const skillDir = process.env.PRESENTATIONS_SKILL_DIR
   ?? "/Users/hyeon/.codex/plugins/cache/openai-primary-runtime/presentations/26.904.11930/skills/presentations";
 const tmpDir = path.join(workspaceDir, ".codex-build", "portfolio-ppt");
-const finalPath = path.join(workspaceDir, "outputs", "pptx", "ga4_product_analytics_portfolio_v7.pptx");
+const finalPath = path.join(workspaceDir, "outputs", "pptx", "ga4_product_analytics_portfolio_v8.pptx");
 const runtimePython = process.env.RUNTIME_PYTHON
   ?? "/Users/hyeon/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3";
 const runtimeNodeModules = process.env.RUNTIME_NODE_MODULES
@@ -187,8 +187,8 @@ function addNotes(slide, text) {
   });
   stat(s, "Business goal", "Weekly revenue growth", 72, 340, 310, C.green);
   stat(s, "Main lever", "Buyer CVR", 410, 340, 250, C.coral);
-  stat(s, "Target scope", "NAU Home Landing", 688, 340, 300, C.teal);
-  card(s, "Portfolio scope", "BigQuery GA4 public dataset 기반으로 event/session/order/item mart를 만들고, first-session discovery 병목을 제품 실험 질문으로 연결했다.", 72, 480, 540, 118, C.blue);
+  stat(s, "분석 대상", "NAU Home Landing", 688, 340, 300, C.teal);
+  card(s, "프로젝트 범위", "BigQuery GA4 public dataset으로 event/session/order/item mart를 만들고, 첫 세션의 상품 탐색 병목을 실험 질문으로 연결했다.", 72, 480, 540, 118, C.blue);
   card(s, "Author", "현승훈\nData Analyst Portfolio", 650, 480, 338, 118, C.ink);
   textbox(s, "Dataset: bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*", 72, 638, 870, 24, { fontSize: 13, color: C.muted });
   addNotes(s, "Cover slide for the portfolio deck.");
@@ -259,15 +259,15 @@ function addNotes(slide, text) {
     xAxis: { textStyle: { fontSize: 11, fill: C.muted } },
   });
   applyChartFont(chart);
-  card(s, "Scope decision", "WAU는 유입, ARPPU는 가격과 장바구니 전략에 가깝다. 이번 프로젝트는 GA4 행동로그로 직접 진단 가능한 Buyer CVR을 분석 scope로 잡았다.", 885, 230, 300, 170, C.coral);
-  card(s, "Chart basis", "각 라인은 첫 주를 100으로 둔 index다. 서로 다른 단위의 지표를 같은 축에서 비교하기 위한 표현이다.", 885, 430, 300, 120, C.blue);
+  card(s, "분석 범위", "WAU는 유입, ARPPU는 가격과 장바구니 전략에 가깝다. 이번 프로젝트는 GA4 행동로그로 직접 진단 가능한 Buyer CVR을 우선 분석했다.", 885, 230, 300, 170, C.coral);
+  card(s, "그래프 기준", "각 라인은 첫 주를 100으로 둔 지수다. 단위가 다른 지표를 같은 축에서 비교하기 위한 표현이다.", 885, 430, 300, 120, C.blue);
   addNotes(s, "Source data: outputs/data/weekly_revenue_decomposition_main_period.csv. Index values are rounded from the four ALL weekly rows.");
 }
 
 // Slide 4
 {
   const s = addSlide("타겟 선정: 어떤 사용자를 우선 볼 것인가", "WHO");
-  textbox(s, "Merchandise Store는 구매 목적의 이커머스이므로 신규/첫 방문 경험이 중요하며, 데이터에서도 NAU가 큰 pool로 관측되었다.", 72, 112, 980, 50, { fontSize: 21, bold: true });
+  textbox(s, "Merchandise Store는 구매 목적의 이커머스이므로 신규/첫 방문 경험이 중요하며, 데이터에서도 NAU가 큰 사용자 집단으로 관측되었다.", 72, 112, 980, 50, { fontSize: 21, bold: true });
   const chart = s.charts.add("bar", {
     position: { left: 90, top: 205, width: 630, height: 330 },
     categories: ["NAU", "EAU", "RAU"],
@@ -284,7 +284,7 @@ function addNotes(slide, text) {
     ["EAU", "5.7%", "7.32%"],
     ["RAU", "3.9%", "8.09%"],
   ], 790, 218, 330, 170, [120, 100, 110]);
-  note(s, "NAU가 항상 더 중요하다는 뜻이 아니다. 관측 데이터와 프로젝트 목적상 first-session 전환 진단에 적합한 scope다.", 790, 420, 330, 96);
+  note(s, "NAU가 항상 더 중요하다는 뜻은 아니다. 관측 데이터와 프로젝트 목적상 첫 세션 전환 진단에 적합한 분석 대상이다.", 790, 420, 330, 96);
   addNotes(s, "Active User-Weeks are not four-week unique users. They are weekly user observations across the main period.");
 }
 
@@ -307,16 +307,16 @@ function addNotes(slide, text) {
     xAxis: { textStyle: { fontSize: 11, fill: C.ink } },
   });
   applyChartFont(chart);
-  card(s, "Sequential rule", "same first session\nevent_seq 기준 순서 강제\n이전 단계 이후 다음 단계 발생 시 통과", 930, 200, 250, 136, C.ink);
-  card(s, "Initial discovery gap", "View Item 도달률\nNAU 21.3%\nEAU 30.3%\nRAU 40.7%", 930, 366, 250, 130, C.coral);
+  card(s, "퍼널 집계 기준", "같은 첫 세션 안에서\nevent_seq 순서를 확인\n이전 단계 이후 발생해야 통과", 930, 200, 250, 136, C.ink);
+  card(s, "초기 상품 탐색 차이", "View Item 도달률\nNAU 21.3%\nEAU 30.3%\nRAU 40.7%", 930, 366, 250, 130, C.coral);
   note(s, "NAU의 상대적 gap은 첫 상품 상세 진입에서 이미 크게 나타난다.", 92, 560, 640, 58);
   addNotes(s, "Source data: outputs/data/segment_week_first_session_funnel_main_period.csv.");
 }
 
 // Slide 6
 {
-  const s = addSlide("진입 맥락 분석: Home Landing의 기회 영역", "Entry Context");
-  textbox(s, "Home Landing은 큰 entry context지만 View Item까지 이어지는 비율은 20.70%에 그쳤다.", 72, 112, 940, 42, { fontSize: 22, bold: true });
+  const s = addSlide("진입 위치 분석: Home Landing의 기회 영역", "Entry");
+  textbox(s, "Home Landing은 유입 규모가 크지만 View Item까지 이어지는 비율은 20.70%에 그쳤다.", 72, 112, 940, 42, { fontSize: 22, bold: true });
   const chart = s.charts.add("bar", {
     position: { left: 95, top: 190, width: 600, height: 350 },
     categories: ["Home Landing", "Reached Item List", "Reached View Item", "Reached Cart"],
@@ -335,17 +335,17 @@ function addNotes(slide, text) {
     ["Reached View Item", "9,711", "20.70%"],
     ["Cart after View Item", "3,516", "36.21%"],
   ], 760, 198, 390, 250, [180, 105, 105]);
-  note(s, "Home에서 View Item까지의 discovery 구간을 다음 분석 대상으로 설정했다.", 760, 478, 390, 70);
+  note(s, "Home에서 상품 상세까지 가는 초기 탐색 구간을 다음 분석 대상으로 설정했다.", 760, 478, 390, 70);
   addNotes(s, "Home landing includes '/', '/store.html', and Home / Google Online Store page titles.");
 }
 
 // Slide 7
 {
-  const s = addSlide("진단 세그먼트 분리: Qualified Home", "Diagnostic");
-  textbox(s, "No-exploration은 별도 engagement 문제로 분리하고, 최소 탐색 행동이 시작된 Qualified Home에서 WHY를 진단했다.", 72, 110, 980, 46, { fontSize: 21, bold: true });
+  const s = addSlide("진단 대상 분리: 탐색 시작 사용자", "Diagnostic");
+  textbox(s, "아무 행동이 없는 세션은 별도 문제로 분리하고, 최소한의 탐색이 시작된 Home 세션에서 원인을 진단했다.", 72, 110, 980, 46, { fontSize: 21, bold: true });
   const donut = s.charts.add("doughnut", {
     position: { left: 75, top: 190, width: 380, height: 300 },
-    categories: ["No-exploration", "Qualified Home"],
+    categories: ["No-exploration", "탐색 시작 Home"],
     series: [{ name: "Sessions", values: [11562, 35361], points: [{ idx: 0, fill: C.amber }, { idx: 1, fill: C.teal }] }],
     doughnutOptions: { holeSize: 58 },
     dataLabels: { showPercent: true, showCategoryName: true, position: "outEnd", textStyle: { fontSize: 12, fill: C.ink } },
@@ -355,28 +355,28 @@ function addNotes(slide, text) {
   const bar = s.charts.add("bar", {
     position: { left: 520, top: 206, width: 610, height: 290 },
     categories: ["home/other no view", "item_list to view", "item_list no view"],
-    series: [{ name: "Share of Qualified Home", values: [0.5009, 0.2383, 0.1962], fill: C.blue }],
+    series: [{ name: "Share of explored Home", values: [0.5009, 0.2383, 0.1962], fill: C.blue }],
     barOptions: { direction: "bar", grouping: "clustered", gapWidth: 42 },
     hasLegend: false,
     xAxis: { min: 0, max: 0.55, numberFormatCode: "0%", majorGridlines: { style: "solid", fill: C.line, width: 1 }, textStyle: { fontSize: 11, fill: C.muted } },
     yAxis: { textStyle: { fontSize: 12, fill: C.ink } },
   });
   applyChartFont(bar);
-  note(s, "WHY 질문: Home에 진입한 뒤 최소한의 탐색 행동을 시작한 사용자는 왜 View Item까지 이어지지 않는가?", 105, 525, 980, 62);
+  note(s, "진단 질문: Home에 진입한 뒤 최소한의 탐색 행동을 시작한 사용자는 왜 상품 상세까지 이어지지 않는가?", 105, 525, 980, 62);
   addNotes(s, "Qualified Home is a diagnostic post-behavior segment, not the A/B test eligibility population.");
 }
 
 // Slide 8
 {
   const s = addSlide("원인 진단: 왜 View Item까지 이어지지 않는가", "WHY");
-  textbox(s, "여러 WHY 후보를 지표 패턴으로 확인한 뒤, discovery 선택 전환 부족을 주요 후보로 좁혔다.", 72, 112, 940, 42, { fontSize: 21, bold: true });
+  textbox(s, "여러 원인 후보를 지표 패턴으로 확인한 뒤, 상품 탐색 요소가 선택으로 이어지지 않는 문제를 주요 후보로 좁혔다.", 72, 112, 940, 42, { fontSize: 21, bold: true });
   addTable(s, [
-    ["WHY 후보", "Evidence", "판단"],
+    ["원인 후보", "확인한 지표", "판단"],
     ["특정 Source", "주요 source에서 유사한 미도달 패턴", "설명력 낮음"],
     ["특정 Device", "desktop/mobile에서 유사한 미도달 패턴", "설명력 낮음"],
     ["단순 이탈", "scroll 87.78%, user_engagement 84.69%", "설명력 낮음"],
     ["비상품 목적", "other page 이동 2,016 / 17,711", "일부 설명"],
-    ["Discovery Selection", "view_promotion 43.12%, select 0.10%", "주요 후보"],
+    ["상품 탐색 선택", "view_promotion 43.12%, select 0.10%", "주요 후보"],
   ], 70, 188, 705, 280, [155, 365, 185]);
   const chart = s.charts.add("bar", {
     position: { left: 825, top: 205, width: 330, height: 255 },
@@ -388,19 +388,19 @@ function addNotes(slide, text) {
     xAxis: { textStyle: { fontSize: 10, fill: C.ink } },
   });
   applyChartFont(chart);
-  note(s, "Target segment: home/other exploration -> no_view_item, n=17,711. Session share: view_promotion 43.12%, select_promotion 0.10%. 관측 데이터는 WHY candidate를 좁히는 데 사용한다.", 160, 515, 890, 72);
+  note(s, "대상 세그먼트: home/other exploration -> no_view_item, n=17,711 sessions. 위 비율은 이 세그먼트 안에서의 session share다. 관측 데이터는 원인 후보를 좁히는 데 사용했다.", 160, 515, 890, 72);
   addNotes(s, "Source data: docs/analysis_notes/03_home_discovery_why_hypothesis.md and sql/analysis/03_home_discovery_why.sql.");
 }
 
 // Slide 9
 {
-  const s = addSlide("제품 가설: Discovery 진입점 강화", "Hypothesis");
-  textbox(s, "관측된 WHY 후보를 제품 가설과 실험 질문으로 변환했다.", 72, 112, 840, 42, { fontSize: 22, bold: true });
+  const s = addSlide("제품 가설: 상품 탐색 진입점 강화", "Hypothesis");
+  textbox(s, "관측 데이터로 좁힌 원인 후보를 제품 가설과 실험 질문으로 바꿨다.", 72, 112, 840, 42, { fontSize: 22, bold: true });
   const items = [
-    ["Observed Evidence", "promotion exposure 높음\nselection 낮음\nselected session의 item_list/view_item 도달률 높음", C.blue],
-    ["WHY Candidate", "Discovery exposure에서 selection으로 이어지는 전환 부족", C.coral],
-    ["Product Hypothesis", "Home discovery entry point의 명확성/매력도를 높이면 Item List와 View Item 도달이 증가", C.teal],
-    ["Causal Validation", "A/B test로 실제 행동 변화 검증", C.green],
+    ["관측 근거", "promotion 노출은 많음\n선택 행동은 낮음\n선택 세션의 item_list/view_item 도달률 높음", C.blue],
+    ["원인 후보", "상품 탐색 요소 노출이 실제 선택으로 잘 이어지지 않음", C.coral],
+    ["제품 가설", "Home의 상품 탐색 진입점을 더 명확하게 만들면 Item List와 View Item 도달이 증가", C.teal],
+    ["검증 방법", "A/B test로 실제 행동 변화 확인", C.green],
   ];
   let x = 70;
   for (let i = 0; i < items.length; i += 1) {
@@ -409,40 +409,40 @@ function addNotes(slide, text) {
     if (i < items.length - 1) addArrow(s, x + 252, 305, x + 308, 305, C.muted);
     x += 300;
   }
-  note(s, "데이터로 UI 문제가 확정된 것이 아니다. 관측 근거를 검증 가능한 causal question으로 바꾼다.", 170, 470, 870, 76);
+  note(s, "관측 데이터만으로 UI 문제가 확정된 것은 아니다. 그래서 실험으로 확인 가능한 질문으로 바꾼다.", 170, 470, 870, 76);
   addNotes(s, "This slide separates observational evidence from the causal question tested by the experiment.");
 }
 
 // Slide 10
 {
   const s = addSlide("실험 설계: A/B 테스트 구조", "Experiment");
-  textbox(s, "A/B Test는 Qualified가 아니라 treatment 이전에 정의 가능한 Home Landing 전체를 ITT로 분석한다.", 72, 110, 950, 42, { fontSize: 21, bold: true });
+  textbox(s, "A/B Test는 사후 행동으로 거른 세그먼트가 아니라, 실험 전에 정의 가능한 Home Landing 전체를 기준으로 분석한다.", 72, 110, 950, 42, { fontSize: 21, bold: true });
   addTable(s, [
     ["항목", "정의"],
-    ["Eligibility Unit", "NAU first session with Home Landing"],
-    ["Randomization Unit", "anonymous_id"],
-    ["Analysis Unit", "eligible Home Landing first session"],
-    ["Analysis Principle", "ITT, all eligible sessions included"],
+    ["실험 대상", "NAU first session with Home Landing"],
+    ["랜덤 배정 단위", "anonymous_id"],
+    ["분석 단위", "eligible Home Landing first session"],
+    ["분석 원칙", "배정된 전체 대상을 포함"],
   ], 78, 190, 510, 210, [190, 320]);
   const ladders = [
-    ["Primary", "Home to Item List Rate", C.blue],
-    ["Key Secondary", "Home to View Item Rate", C.teal],
-    ["Guardrail", "Item List to View Item Rate", C.amber],
-    ["Downstream", "Purchase Rate, Revenue per Session", C.coral],
+    ["주요 지표", "Home to Item List Rate", C.blue],
+    ["보조 지표", "Home to View Item Rate", C.teal],
+    ["품질 확인 지표", "Item List to View Item Rate", C.amber],
+    ["참고 지표", "Purchase Rate, Revenue per Session", C.coral],
   ];
   let y = 180;
   for (const [role, metric, color] of ladders) {
     card(s, role, metric, 700, y, 380, 70, color);
     y += 86;
   }
-  note(s, "Qualified Home은 사후 행동으로 정의되므로 실험 eligibility로 사용하지 않는다.", 78, 470, 510, 70);
+  note(s, "탐색 시작 여부는 실험 이후 행동으로 정해지므로 실험 대상 조건으로 사용하지 않는다.", 78, 470, 510, 70);
   addNotes(s, "The analysis uses Qualified Home for diagnosis, while the experiment uses all eligible Home Landing first sessions for ITT.");
 }
 
 // Slide 11
 {
-  const s = addSlide("실험 결과: 가상 데이터 기반 평가 파이프라인 검정", "Simulation");
-  textbox(s, "Synthetic A/B에서 사전에 설정한 효과가 분석 파이프라인에서 기대 방향으로 검출되는지 확인했다.", 72, 108, 980, 42, { fontSize: 21, bold: true });
+  const s = addSlide("실험 결과: 가상 데이터 기반 검정", "Simulation");
+  textbox(s, "가상 A/B 데이터에서 사전에 설정한 효과가 기대 방향으로 검출되는지 확인했다.", 72, 108, 980, 42, { fontSize: 21, bold: true });
   const chart = s.charts.add("bar", {
     position: { left: 70, top: 205, width: 670, height: 310 },
     categories: ["Home to Item List", "Home to View Item", "Item List to View Item"],
@@ -461,24 +461,24 @@ function addNotes(slide, text) {
     ["Metric", "Lift", "95% CI", "p-value"],
     ["Home to Item List", "+3.99%p", "+3.13 to +4.86", "< .001"],
     ["Home to View Item", "+2.54%p", "+1.81 to +3.28", "< .001"],
-    ["Guardrail", "+0.73%p", "-0.71 to +2.18", "Pass"],
+    ["품질 확인", "+0.73%p", "-0.71 to +2.18", "Pass"],
   ], 790, 205, 390, 185, [145, 70, 115, 60]);
   addTable(s, [
-    ["Sample plan", "Value"],
+    ["표본 설계", "값"],
     ["Baseline", "36.04%"],
     ["MDE", "+3.50%p"],
-    ["Required sample", "2,372 per variant"],
-    ["Simulation sample", "24,000 per variant"],
+    ["필요 표본", "2,372 per variant"],
+    ["가상 데이터 표본", "24,000 per variant"],
   ], 790, 430, 390, 170, [190, 200]);
   addNotes(s, "Synthetic data based on observed Home Landing baseline. Required sample is the minimum for MDE detection; 24,000 per variant reflects the four-week traffic scale. This simulation checks whether the analysis pipeline detects the pre-specified effect direction. Actual product impact must be validated in a production A/B test.");
 }
 
 // Slide 12
 {
-  const s = addSlide("매출 기회 추정: Modeled Revenue Opportunity", "Opportunity");
-  textbox(s, "초기 discovery 행동 개선이 기존 downstream 전환율로 이어진다면 전체 주 매출 기준 약 2.3%의 modeled opportunity가 있다.", 72, 108, 980, 46, { fontSize: 21, bold: true });
+  const s = addSlide("매출 기회 추정", "Opportunity");
+  textbox(s, "초기 상품 탐색 행동 개선이 기존 전환율로 이어진다면 전체 주 매출 기준 약 2.3%의 기회로 추정된다.", 72, 108, 980, 46, { fontSize: 21, bold: true });
   const flow = [
-    ["11,731", "Weekly Eligible NAU Home First Sessions", C.blue],
+    ["11,731", "주간 Eligible NAU Home First Sessions", C.blue],
     ["+298", "Additional View Item", C.teal],
     ["≈ 15", "Additional Purchases", C.amber],
     ["≈ $1.14K", "Revenue / week", C.green],
@@ -515,7 +515,7 @@ function addNotes(slide, text) {
     ["Revenue opportunity", "298 x 5.1% x $75 = $1,140"],
     ["Weekly revenue share", "$1,140 / $49,477.5 = 2.3%"],
   ], 140, 398, 520, 185, [180, 340]);
-  note(s, "Impact assumption: incremental View Item users keep the observed View Item to Purchase rate and revenue per purchase. This is a directional modeled opportunity, not observed revenue uplift.", 705, 414, 430, 116);
+  note(s, "추정 가정: 추가로 View Item에 도달한 사용자도 기존 View Item 사용자의 구매 전환율과 구매당 매출을 따른다고 본다. 실제 관측 매출 상승이 아니라 방향성 추정치다.", 705, 414, 430, 116);
   addNotes(s, "Modeled revenue opportunity uses observed downstream baseline assumptions and should not be presented as direct revenue lift from a real production experiment.");
 }
 
@@ -555,7 +555,7 @@ await finalizePresentation({
   materializeLiteralChartWorkbooks: true,
   fontPolicy,
   verifyArtifactToolImport: true,
-  receiptPath: path.join(workspaceDir, ".codex-finalizer", "ga4_product_analytics_portfolio_v7.validation.json"),
+  receiptPath: path.join(workspaceDir, ".codex-finalizer", "ga4_product_analytics_portfolio_v8.validation.json"),
 });
 
 console.log(finalPath);

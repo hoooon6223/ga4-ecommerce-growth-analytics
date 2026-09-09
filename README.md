@@ -2,7 +2,7 @@
 
 GA4 ecommerce public dataset을 활용해 **주별 매출 성장**이라는 비즈니스 목표를 행동로그 분석과 제품 실험 설계로 연결한 데이터 분석 포트폴리오입니다.
 
-단순 EDA에서 끝내지 않고, raw event log를 분석 가능한 mart로 모델링한 뒤 `Business Goal -> Revenue Structure -> WHO -> WHERE -> WHY -> Product Hypothesis -> A/B Test -> Revenue Opportunity` 흐름으로 문제를 좁혔습니다.
+단순 EDA에서 끝내지 않고, raw event log를 분석 가능한 mart로 모델링한 뒤 매출 구조화, 타겟 선정, 퍼널 진단, 원인 후보 검토, 제품 가설, A/B 테스트 시뮬레이션까지 연결했습니다.
 
 ## 최종 산출물
 
@@ -27,7 +27,7 @@ GA4 ecommerce public dataset을 활용해 **주별 매출 성장**이라는 비�
 Weekly Revenue = WAU x Weekly Buyer CVR x ARPPU
 ```
 
-이 분해는 단순 프레임워크가 아니라 매출을 구성하는 수학적 identity입니다. 이 중 GA4 행동로그로 제품 경험을 직접 진단하고 실험 가설로 연결하기 좋은 `Weekly Buyer CVR`을 분석 scope로 설정했습니다.
+이 분해는 단순 프레임워크가 아니라 매출을 구성하는 수학적 관계입니다. 이 중 GA4 행동로그로 제품 경험을 직접 진단하고 실험 가설로 연결하기 좋은 `Weekly Buyer CVR`을 우선 분석 대상으로 설정했습니다.
 
 ## 데이터
 
@@ -119,7 +119,7 @@ item grain 분석에서는 base_f_order_items.item_revenue를 사용합니다.
 | RAU | 3.9% | 8.09% |
 
 Merchandise Store는 상품 구매 목적의 이커머스이므로 신규/첫 방문 경험이 중요한 서비스 맥락입니다.
-이번 데이터에서도 NAU가 가장 큰 user-week pool로 관측되었고, 첫 세션 행동로그로 제품 경험을 진단해 실험 가설로 연결하기 좋은 scope였기 때문에 NAU를 선택했습니다.
+이번 데이터에서도 NAU가 가장 큰 user-week 집단으로 관측되었고, 첫 세션 행동로그로 제품 경험을 진단해 실험 가설로 연결하기 좋은 대상이었기 때문에 NAU를 선택했습니다.
 
 ### 2. NAU의 병목은 첫 상품 상세 진입에서 크게 나타났다
 
@@ -150,9 +150,9 @@ Home Landing NAU first session 전체 기준:
 
 Home에서 View Item으로 가는 경로는 item_list, search, direct, other 등 여러 갈래가 있으므로, item_list를 메인 퍼널 단계로 강제하지 않고 route segment로 분해했습니다.
 
-### 4. WHY 후보는 Discovery 선택 전환 부족으로 좁혔다
+### 4. 원인 후보는 상품 탐색 선택 부족으로 좁혔다
 
-Qualified Home에서 가장 큰 미전환 풀은 `home/other exploration -> no view_item` 세그먼트였습니다.
+최소한의 탐색 행동이 있었던 Home 세션에서 가장 큰 미전환 집단은 `home/other exploration -> no view_item` 세그먼트였습니다.
 
 WHY 후보를 source, device, 단순 이탈, 비상품 목적, discovery selection 관점에서 확인한 결과, 가장 설득력 있는 후보는 아래였습니다.
 
@@ -176,16 +176,16 @@ n = 17,711 sessions
 
 이 결과는 원인 확정이 아니라, A/B test로 검증할 WHY/HOW 후보를 좁힌 것입니다.
 
-### 5. A/B Test는 Home Landing 전체 ITT로 설계했다
+### 5. A/B Test는 Home Landing 전체 기준으로 설계했다
 
-분석 단계에서는 Qualified Home을 사후 진단 세그먼트로 사용했습니다. 하지만 실험에서는 treatment 이후 행동으로 eligibility를 정의하면 편향이 생길 수 있으므로, A/B test는 treatment 이전에 판단 가능한 전체 Home Landing을 대상으로 설계했습니다.
+분석 단계에서는 최소한의 탐색 행동이 있었던 Home 세션을 사후 진단 세그먼트로 사용했습니다. 하지만 실험에서는 treatment 이후 행동으로 대상을 고르면 편향이 생길 수 있으므로, A/B test는 treatment 이전에 판단 가능한 전체 Home Landing을 대상으로 설계했습니다.
 
 | 항목 | 정의 |
 |---|---|
-| Eligibility Unit | NAU first session with Home Landing |
+| 실험 대상 | NAU first session with Home Landing |
 | Randomization Unit | `anonymous_id` |
-| Analysis Unit | eligible Home Landing first session |
-| Analysis Principle | ITT, all eligible sessions included |
+| 분석 단위 | eligible Home Landing first session |
+| 분석 원칙 | 배정된 전체 대상을 포함 |
 
 실험 지표:
 
@@ -222,17 +222,17 @@ Sample size 설계:
 해석:
 
 ```text
-Synthetic A/B에서 사전에 설정한 효과가 분석 파이프라인에서
+가상 A/B 데이터에서 사전에 설정한 효과가
 기대 방향으로 검출되는지 확인했다.
 
 실제 제품 효과는 production A/B test에서 검증해야 한다.
-Purchase/Revenue downstream metric은 방향성 확인 및
+Purchase/Revenue 지표는 방향성 확인 및
 modeled opportunity 계산에만 사용한다.
 ```
 
-## Modeled Revenue Opportunity
+## 매출 기회 추정
 
-Synthetic A/B test의 Home -> View Item lift를 기존 downstream baseline에 연결하면 다음과 같은 기회 규모가 추정됩니다.
+Synthetic A/B test의 Home -> View Item lift를 기존 전환율에 연결하면 다음과 같은 기회 규모가 추정됩니다.
 
 ```text
 Weekly Eligible NAU Home First Sessions = 46,923 / 4 = 11,731
@@ -255,7 +255,7 @@ Weekly Revenue Share
 
 ```text
 위 수치는 실제 매출 uplift가 아니라 directional modeled opportunity입니다.
-새롭게 View Item에 도달한 사용자가 기존 View Item 사용자와 동일한 downstream purchase rate와 revenue per purchase를 가진다는 가정이 포함됩니다.
+새롭게 View Item에 도달한 사용자가 기존 View Item 사용자와 동일한 구매 전환율과 구매당 매출을 가진다는 가정이 포함됩니다.
 ```
 
 ## 폴더 구조
@@ -332,7 +332,7 @@ outputs/ab_tests/home_discovery_ab_test_power_plan.csv
 ```text
 1. anonymous_id는 GA4 user_pseudo_id 기반 익명 식별자이며 실제 회원 ID가 아닙니다.
 2. 4주 합산값은 unique user가 아니라 Active User-Weeks 기준입니다.
-3. Qualified Home은 분석용 사후 행동 세그먼트이며 A/B eligibility가 아닙니다.
+3. 최소 탐색 행동이 있었던 Home 세션은 분석용 사후 행동 세그먼트이며 A/B test 대상 조건이 아닙니다.
 4. A/B test는 실제 운영 실험이 아니라 synthetic data 기반 시뮬레이션입니다.
-5. Modeled Revenue Opportunity는 방향성 추정치이며 실제 매출 uplift로 해석하지 않습니다.
+5. 매출 기회 추정치는 방향성 추정치이며 실제 매출 상승으로 해석하지 않습니다.
 ```
